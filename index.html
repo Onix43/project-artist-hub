@@ -10,7 +10,8 @@
       href="/node_modules/modern-normalize/modern-normalize.css"
     />
     <script type="module" crossorigin src="/project-artist-hub/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/project-artist-hub/assets/index-DXERtuTl.css">
+    <link rel="modulepreload" crossorigin href="/project-artist-hub/assets/vendor-BJ9gahTP.js">
+    <link rel="stylesheet" crossorigin href="/project-artist-hub/assets/index-yAb2_iMG.css">
   </head>
   <body>
     <header class="header">
@@ -21,7 +22,20 @@
       <section class="hero"><div class="container"></div></section>
 
       <section class="artists">
-  <div class="container"></div>
+  <div class="container">
+    <p class="artists-subtitle">Artists</p>
+    <h2 class="artists-title">Explore Your New Favorite Artists</h2>
+    <div class="artists-results" id="artists-results">
+      <ul class="artists-list"></ul>
+      <button class="load-more-btn" type="button">
+        Load More<span>
+          <svg width="12" height="12">
+            <use href="/project-artist-hub/assets/symbol-defs-CjLODlaq.svg#arrow-down"></use>
+          </svg>
+        </span>
+      </button>
+    </div>
+  </div>
 </section>
 
       <section class="about-us">
