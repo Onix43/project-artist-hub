@@ -1,6 +1,6 @@
 import { getArtists } from '../../api/artists-api';
 import refs from '../../refs';
-import sprite from '../assets/icons/symbol-defs.svg';
+import sprite from '../../../assets/icons/symbol-defs.svg';
 
 console.log(refs.listArtists);
 const { artists } = await getArtists();
