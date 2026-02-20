@@ -1,6 +1,7 @@
 import { getArtists } from '../../api/artists-api';
+import { listArtists } from '../../refs';
 
-const list = document.querySelector('.artists-list');
+// const list = document.querySelector('.artists-list');
 
 const { artists } = await getArtists();
 
@@ -37,8 +38,7 @@ function createArtistsList() {
       `;
     })
     .join('');
-  console.log(markup);
-  list.insertAdjacentHTML('beforeend', markup);
+  listArtists.insertAdjacentHTML('beforeend', markup);
 }
 
 createArtistsList();
