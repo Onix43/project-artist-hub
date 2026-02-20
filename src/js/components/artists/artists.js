@@ -27,7 +27,7 @@ async function createArtistsList() {
             Load More
             <span>
               <svg width="8" height="14">
-                <use href="../assets/icons/symbol-defs.svg#learn-more"></use>
+                <use href="./assets/icons/symbol-defs.svg#learn-more"></use>
               </svg>
             </span>
           </button>
