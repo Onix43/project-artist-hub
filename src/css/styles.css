@@ -11,11 +11,11 @@
 @import url('./base/container.css');
 
 /* Sections style */
-@import url('./header.css');
-@import url('./footer.css');
-@import url('./hero.css');
-@import url('./arists.css');
-@import url('./about-us.css');
-@import url('./feedbacks.css');
-@import url('./modal-feedback.css');
-@import url('./modal-artist.css');
+@import url('./sections/header.css');
+@import url('./sections/footer.css');
+@import url('./sections/hero.css');
+@import url('./sections/arists.css');
+@import url('./sections/about-us.css');
+@import url('./sections/feedbacks.css');
+@import url('./sections/modal-feedback.css');
+@import url('./sections/modal-artist.css');
