@@ -1,6 +1,6 @@
 // Fetch logic
-import axios from 'axios';
+// import axios from 'axios';
 
-export const api = axios.create({
-  baseURL: 'https://sound-wave.b.goit.study/api',
-});
+// export const api = axios.create({
+//   baseURL: 'https://sound-wave.b.goit.study/api',
+// });
