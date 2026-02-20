@@ -1,5 +1,6 @@
 import { getArtists } from '../../api/artists-api';
 import refs from '../../refs';
+import sprite from '../assets/icons/symbol-defs.svg';
 
 console.log(refs.listArtists);
 const { artists } = await getArtists();
@@ -29,7 +30,7 @@ function createArtistsList() {
             Load More
             <span>
               <svg width="8" height="14">
-                <use href="/assets/icons/symbol-defs.svg#learn-more"></use>
+                <use href="${sprite}#learn-more"></use>
               </svg>
             </span>
           </button>
