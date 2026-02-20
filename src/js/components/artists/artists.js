@@ -1,10 +1,8 @@
 import { getArtists } from '../../api/artists-api';
 import refs from '../../refs';
 
-console.log(refs.listArtists);
-const { artists } = await getArtists();
-
-function createArtistsList() {
+async function createArtistsList() {
+  const { artists } = await getArtists();
   const markup = artists
     .map(({ _id, strArtist, strBiographyEN, strArtistThumb, genres }) => {
       return `
