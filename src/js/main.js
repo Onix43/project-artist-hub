@@ -15,3 +15,4 @@ if (artistsList) {
     }
   });
 }
+import './render/render-feedbacks';
