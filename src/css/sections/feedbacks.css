@@ -1,4 +1,8 @@
 
+.feedback.container{
+    margin: 0 auto;
+}
+
 .swiper {
     margin-bottom: 26px;
     @media(min-width: 768px){
