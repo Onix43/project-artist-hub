@@ -97,11 +97,19 @@
   }
 
   .hero-image {
+    display: block;
     width: 280px;
     height: 385px;
     border-radius: 16px;
     overflow: hidden;
-    background-image: url('/hero-mobile.png');
+    background-image: -webkit-image-set(
+      url('/hero-desktop.png') 1x,
+      url('/hero-desktop@2x.png') 2x
+    );
+    background-image: image-set(
+      url('/hero-desktop.png') 1x,
+      url('/hero-desktop@2x.png') 2x
+    );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -130,7 +138,6 @@
     .hero-image {
       width: 704px;
       height: 632px;
-      background-image: url('/hero-tablet.png');
     }
   }
 
@@ -157,7 +164,6 @@
       flex: 0 0 641px;
       width: 641px;
       height: 900px;
-      background-image: url('/hero-desktop.png');
     }
   }
 }
