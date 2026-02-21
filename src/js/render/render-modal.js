@@ -74,152 +74,126 @@ function renderModalContent(content, data) {
     intMembers: members,
     strCountry: country,
     strBiographyEN: biography,
-    genres: genres,
-    albumsList: albums,
+    genres = [],
+    albumsList: albums = [],
   } = data;
 
-  console.log(data);
-
-  // Name
-  content.querySelector('.modal-artist-name').textContent = name || '';
-
-  // Image
-  const imgEl = content.querySelector('.modal-artist-image');
-  imgEl.src = strArtistThumb || '';
-  imgEl.alt = name || 'Artist photo';
-
-  // Years
-  const yearsEl = content.querySelector('.modal-artist-years-value');
+  // Years active
+  let yearsActive = 'Information missing';
   if (founded && disbanded) {
-    yearsEl.textContent = `${founded} – ${disbanded}`;
+    yearsActive = `${founded} – ${disbanded}`;
   } else if (founded) {
-    yearsEl.textContent = `${founded} – present`;
-  } else {
-    yearsEl.textContent = 'Information missing';
+    yearsActive = `${founded} – present`;
   }
 
-  // Gender
-  const genderEl = content.querySelector('.modal-artist-gender');
-  if (gender) {
-    content.querySelector('.modal-artist-gender-value').textContent = gender;
-    genderEl.style.display = '';
-  } else {
-    genderEl.style.display = 'none';
-  }
+  // Genres markup
+  const genresMarkup = genres.length
+    ? genres
+        .map(genre => `<li class="modal-artist-genre-item">${genre}</li>`)
+        .join('')
+    : '<li class="modal-artist-genre-item">No genres listed</li>';
 
-  // Members
-  const membersEl = content.querySelector('.modal-artist-members');
-  if (members) {
-    content.querySelector('.modal-artist-members-value').textContent = members;
-    membersEl.style.display = '';
-  } else {
-    membersEl.style.display = 'none';
-  }
-
-  // Country
-  content.querySelector('.modal-artist-country-value').textContent =
-    country || 'Information missing';
-
-  // Biograph
-  const biographyText = biography
-    .replace(/\n/g, '<br>')
-    .split('<br>')
-    .slice(0, 1)
-    .join('<br>');
-  content.querySelector('.modal-artist-description-text').innerHTML =
-    biographyText || 'No biography available.';
-
-  // Genres
-  const genreList = content.querySelector('.modal-artist-genre-list');
-  genreList.innerHTML = '';
-  console.log(genres);
-  if (genres && genres.length) {
-    genres.forEach(genre => {
-      const li = document.createElement('li');
-      li.className = 'modal-artist-genre-item';
-      li.textContent = genre;
-      genreList.appendChild(li);
-    });
-  }
-
-  // Albums
-  const albumList = content.querySelector('.modal-artist-album-list');
-  albumList.innerHTML = '';
-  if (albums && albums.length) {
-    for (let index = 0; index < 8; index++) {
-      const album = albums[index];
-      const li = document.createElement('li');
-      li.className = 'modal-artist-album-item';
-
-      const h4 = document.createElement('h4');
-      h4.textContent = album.strAlbum;
-      li.appendChild(h4);
-
-      const trackUl = document.createElement('ul');
-      trackUl.className = 'modal-artist-track-header';
-      li.appendChild(trackUl);
-
-      const p = document.createElement('p');
-      p.className = 'modal-artist-track-title-name';
-      p.textContent = 'Track';
-      trackUl.appendChild(p);
-
-      const p2 = document.createElement('p');
-      p2.className = 'modal-artist-track-title-time';
-      p2.textContent = 'Time';
-      trackUl.appendChild(p2);
-
-      const p3 = document.createElement('p');
-      p3.className = 'modal-artist-track-title-link';
-      p3.textContent = 'Link';
-      trackUl.appendChild(p3);
-
-      if (album.tracks && album.tracks.length) {
-        const trackUl = document.createElement('ul');
-        trackUl.className = 'modal-artist-track-list';
-
-        album.tracks.forEach(track => {
-          console.log(track);
-          const trackLi = document.createElement('li');
-          trackLi.className = 'modal-artist-track-item';
-
-          const nameP = document.createElement('p');
-          nameP.className = 'modal-artist-track-name';
-          nameP.textContent = track.strTrack;
-          trackLi.appendChild(nameP);
-
-          const timeP = document.createElement('p');
-          timeP.className = 'modal-artist-track-time';
-          timeP.textContent = msToMinutesSeconds(track.intDuration) || '';
-          trackLi.appendChild(timeP);
-
-          if (track.movie) {
-            const link = document.createElement('a');
-            link.className = 'modal-artist-track-link';
-            link.href = track.movie;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.setAttribute('aria-label', `Watch ${track.name} on YouTube`);
-            link.innerHTML = `<svg class="modal-artist-track-icon" width="24" height="24">
+  // Albums markup
+  const albumsMarkup = albums
+    .map(album => {
+      const tracksMarkup = (album.tracks || [])
+        .map(track => {
+          const duration = msToMinutesSeconds(track.intDuration) || '';
+          const youtubeLink = track.movie
+            ? `<a class="modal-artist-track-link" href="${track.movie}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${track.strTrack} on YouTube">
+            <svg class="modal-artist-track-icon" width="24" height="24">
               <use href="${sprite}#youtube"></use>
-            </svg>`;
-            trackLi.appendChild(link);
-          } else {
-            const link = document.createElement('a');
-            link.className = 'modal-artist-track-link';
-            link.innerHTML = '';
-            trackLi.appendChild(link);
+            </svg>
+           </a>`
+            : '<div class="modal-artist-track-link"></div>';
+
+          return `
+        <li class="modal-artist-track-item">
+          <p class="modal-artist-track-name">${track.strTrack}</p>
+          <p class="modal-artist-track-time">${duration}</p>
+          ${youtubeLink}
+        </li>
+      `;
+        })
+        .join('');
+
+      return `
+      <li class="modal-artist-album-item">
+        <h4 class="modal-artist-album-name">${album.strAlbum}</h4>
+        <div class="modal-artist-track-header">
+          <p class="modal-artist-track-title-name">Track</p>
+          <p class="modal-artist-track-title-time">Time</p>
+          <p class="modal-artist-track-title-link">Link</p>
+        </div>
+        <ul class="modal-artist-track-list">
+          ${tracksMarkup}
+        </ul>
+      </li>
+    `;
+    })
+    .join('');
+
+  // Biography - get first paragraph or slice if too long
+  const biographyText = biography
+    ? biography.split('\n')[0]
+    : 'No biography available.';
+
+  content.innerHTML = `
+    <h3 class="modal-artist-name">${name || ''}</h3>
+
+    <div class="modal-artist-header">
+      <img class="modal-artist-image" src="${strArtistThumb || ''}" alt="${name || 'Artist photo'}" />
+
+      <div class="modal-artist-details">
+        <div class="modal-artist-info">
+          <p class="modal-artist-years">
+            <span class="modal-artist-info-label">Years active</span>
+            <span class="modal-artist-years-value">${yearsActive}</span>
+          </p>
+          ${
+            gender
+              ? `
+          <p class="modal-artist-gender">
+            <span class="modal-artist-info-label">Sex</span>
+            <span class="modal-artist-gender-value">${gender}</span>
+          </p>`
+              : ''
           }
+          ${
+            members
+              ? `
+          <p class="modal-artist-members">
+            <span class="modal-artist-info-label">Members</span>
+            <span class="modal-artist-members-value">${members}</span>
+          </p>`
+              : ''
+          }
+          <p class="modal-artist-country">
+            <span class="modal-artist-info-label">Country</span>
+            <span class="modal-artist-country-value">${country || 'Information missing'}</span>
+          </p>
+        </div>
 
-          trackUl.appendChild(trackLi);
-        });
+        <div class="modal-artist-description">
+          <h4 class="modal-artist-description-title">Biography</h4>
+          <p class="modal-artist-description-text">${biographyText}</p>
+        </div>
+        
+        <div class="modal-artist-genres">
+          <ul class="modal-artist-genre-list">
+            ${genresMarkup}
+          </ul>
+        </div>
+      </div>
+    </div>
 
-        li.appendChild(trackUl);
-      }
-
-      albumList.appendChild(li);
-    }
-  }
+    <div class="modal-artist-albums">
+      <h4 class="modal-artist-albums-title">Albums</h4>
+      <ul class="modal-artist-album-list">
+        ${albumsMarkup}
+      </ul>
+    </div>
+  `;
 }
 
 function msToMinutesSeconds(milliseconds) {

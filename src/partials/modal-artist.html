@@ -3,7 +3,7 @@
     <!-- Close button -->
     <button class="modal-artist-close" type="button" aria-label="Close modal">
       <svg class="modal-artist-close-icon" width="24" height="24">
-        <use href="../assets/icons/symbol-defs.svg#close-button"></use>
+        <use href="./assets/icons/symbol-defs.svg#close-button"></use>
       </svg>
     </button>
 
@@ -14,55 +14,7 @@
 
     <!-- Content (hidden until data loads) -->
     <div class="modal-artist-content" style="display: none">
-      <!-- Artist name -->
-      <h3 class="modal-artist-name"></h3>
-
-      <!-- Header: image + details side by side on tablet+ -->
-      <div class="modal-artist-header">
-        <!-- Artist image -->
-        <img class="modal-artist-image" src="" alt="" />
-
-        <div class="modal-artist-details">
-          <!-- Info block -->
-          <div class="modal-artist-info">
-            <p class="modal-artist-years">
-              <span class="modal-artist-info-label">Years active</span>
-              <span class="modal-artist-years-value"></span>
-            </p>
-            <p class="modal-artist-gender" style="display: none">
-              <span class="modal-artist-info-label">Sex</span>
-              <span class="modal-artist-gender-value"></span>
-            </p>
-            <p class="modal-artist-members" style="display: none">
-              <span class="modal-artist-info-label">Members</span>
-              <span class="modal-artist-members-value"></span>
-            </p>
-            <p class="modal-artist-country">
-              <span class="modal-artist-info-label">Country</span>
-              <span class="modal-artist-country-value"></span>
-            </p>
-          </div>
-
-          <!-- Description -->
-          <div class="modal-artist-description">
-            <h4 class="modal-artist-description-title">Biography</h4>
-            <p class="modal-artist-description-text"></p>
-          </div>
-
-          <!-- Genres -->
-          <div class="modal-artist-genres">
-            <ul class="modal-artist-genre-list">
-              <li class="modal-artist-genre-item"></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- Albums -->
-      <div class="modal-artist-albums">
-        <h4 class="modal-artist-albums-title">Albums</h4>
-        <ul class="modal-artist-album-list"></ul>
-      </div>
+      <!-- Content will be injected here via JavaScript -->
     </div>
   </div>
 </div>
