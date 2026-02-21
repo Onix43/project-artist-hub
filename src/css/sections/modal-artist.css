@@ -1,0 +1,423 @@
+/* ========== MODAL ARTIST ========== */
+
+/* Backdrop */
+.modal-artist {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-artist.is-open {
+  display: flex;
+  animation: modalBackdropIn 300ms ease forwards;
+}
+
+@keyframes modalBackdropIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Wrapper */
+.modal-artist-wrapper {
+  padding: 48px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 20px;
+  background-color: #060307;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+  color: var(--white-color);
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  width: 100%;
+  animation: modalSlideIn 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Custom scrollbar */
+.modal-artist-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-artist-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-artist-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+
+.modal-artist-wrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* Close button */
+.modal-artist-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition);
+  z-index: 1;
+}
+
+.modal-artist-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: rotate(90deg);
+}
+
+.modal-artist-close-icon {
+  width: 16px;
+  height: 16px;
+  fill: rgba(255, 255, 255, 0.7);
+}
+
+/* Loader */
+.modal-artist-loader {
+  text-align: center;
+  padding: 48px 32px;
+  font-size: 16px;
+  font-family: var(--font-sans);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Content */
+.modal-artist-content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* Artist name */
+.modal-artist-name {
+  font-family: var(--font-epilogue);
+  font-size: 26px;
+  font-weight: var(--font-b);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Header: image + details */
+.modal-artist-header {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Details column */
+.modal-artist-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Artist image */
+.modal-artist-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Info block */
+.modal-artist-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px 24px;
+}
+
+.modal-artist-info-label {
+  font-weight: var(--font-sb);
+  color: var(--white-color);
+}
+
+/* Years */
+.modal-artist-years,
+.modal-artist-gender,
+.modal-artist-members,
+.modal-artist-country {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-family: var(--font-sans);
+  line-height: 1.9;
+  color: var(--white-color);
+}
+
+/* Description */
+.modal-artist-description-title,
+.modal-artist-albums-title {
+  font-family: var(--font-epilogue);
+  font-size: 17px;
+  font-weight: var(--font-sb);
+  margin: 0 0 10px 0;
+  color: var(--white-color);
+  letter-spacing: -0.01em;
+}
+
+.modal-artist-description-text {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Genres */
+.modal-artist-genre-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.modal-artist-genre-item {
+  color: var(--white-color);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: var(--font-sans);
+  font-weight: var(--font-md);
+  border: 1px solid rgba(118, 65, 145, 0.3);
+  transition: all var(--transition);
+}
+
+.modal-artist-genre-item:hover {
+  background: rgba(118, 65, 145, 0.28);
+  border-color: rgba(118, 65, 145, 0.5);
+}
+
+/* Albums */
+.modal-artist-album-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.modal-artist-album-item {
+  background: #1e1c1f;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  padding: 16px;
+  transition: all var(--transition);
+}
+
+.modal-artist-album-item h4 {
+  font-family: var(--font-epilogue);
+  font-size: 16px;
+  font-weight: var(--font-sb);
+  margin: 0 0 12px 0;
+  color: var(--white-color);
+  letter-spacing: -0.01em;
+}
+
+/* Tracks */
+.modal-artist-track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.modal-artist-track-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 12px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  gap: 16px;
+}
+
+.modal-artist-track-name,
+.modal-artist-track-time,
+.modal-artist-track-link {
+  font-weight: 400;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  line-height: 150%;
+  color: var(--white-color);
+}
+.modal-artist-track-title-link,
+.modal-artist-track-title-time,
+.modal-artist-track-title-name {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-size: 8px;
+  line-height: 150%;
+  text-align: center;
+  color: var(--white-color);
+}
+.modal-artist-track-title-link {
+  width: 35px;
+}
+.modal-artist-track-title-time {
+  width: 102px;
+}
+.modal-artist-track-title-name {
+  width: 97px;
+  text-align: left;
+}
+.modal-artist-track-header {
+  border-radius: 8px;
+  padding: 4px 4px 4px 12px;
+  height: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.modal-artist-track-name {
+  width: 97px;
+}
+.modal-artist-track-time {
+  width: 74px;
+  text-align: center;
+}
+.modal-artist-track-link {
+  width: 20px;
+}
+
+.modal-artist-track-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-artist-track-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all var(--transition);
+}
+
+.modal-artist-track-item:nth-child(even) {
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.modal-artist-track-link:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.modal-artist-track-icon {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ========== TABLET ========== */
+@media only screen and (min-width: 768px) {
+  .modal-artist-wrapper {
+    max-width: 680px;
+    padding: 48px 36px 36px;
+  }
+
+  .modal-artist-header {
+    flex-direction: row;
+    gap: 28px;
+  }
+
+  .modal-artist-image {
+    width: 240px;
+    min-width: 240px;
+    aspect-ratio: 3 / 4;
+    align-self: flex-start;
+  }
+
+  .modal-artist-name {
+    font-size: 30px;
+  }
+
+  .modal-artist-close-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .modal-artist-album-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-artist-album-item {
+    max-width: 311px;
+  }
+}
+/* ========== DESKTOP ========== */
+@media only screen and (min-width: 1440px) {
+  .modal-artist-wrapper {
+    max-width: 1312px;
+    padding: 64px;
+  }
+
+  .modal-artist-name {
+    font-size: 36px;
+  }
+
+  .modal-artist-image {
+    width: 280px;
+    min-width: 280px;
+  }
+
+  .modal-artist-album-list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .modal-artist-close {
+    top: 18px;
+    right: 18px;
+  }
+  .modal-artist-album-item {
+    max-width: 272px;
+  }
+}
