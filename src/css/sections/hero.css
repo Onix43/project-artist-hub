@@ -24,7 +24,7 @@
   }
 
   .hero .container {
-    width: 100%;
+    max-width: 320px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -97,9 +97,9 @@
   }
 
   .hero-image {
+    width: 338px;
+    height: 542px;
     display: block;
-    width: 280px;
-    height: 385px;
     border-radius: 16px;
     overflow: hidden;
     background-image: -webkit-image-set(
@@ -111,7 +111,7 @@
       url('/hero-desktop@2x.png') 2x
     );
     background-size: cover;
-    background-position: center;
+    background-position: top right;
     background-repeat: no-repeat;
   }
 
@@ -138,6 +138,7 @@
     .hero-image {
       width: 704px;
       height: 632px;
+      background-position: top center;
     }
   }
 
