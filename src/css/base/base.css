@@ -43,3 +43,28 @@ main {
 main:has(.back-link) {
   text-align: center;
 }
+
+.btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 12px;
+
+  border-radius: 12px;
+  padding: 10px 24px;
+  border-color: transparent;
+  background: #764191;
+
+  font-weight: 500;
+  box-shadow:
+    0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+}
+
+.btn-primary:active {
+  box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
+}
