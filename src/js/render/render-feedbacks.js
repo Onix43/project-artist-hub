@@ -4,7 +4,6 @@ import 'swiper';
 
 async function creatFeedbackList() {
   const feedbacks = await getFeedbacks();
-  console.log(feedbacks);
 
   const markupFeedbacks = feedbacks.data
     .map(({ name, rating, descr }) => {
