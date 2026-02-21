@@ -1,9 +1,16 @@
 .feedbacks .container {
   margin: 0 auto;
+  padding-top: 64px;
+  padding-bottom: 64px;
+   
+  @media (min-width: 1400px) {
+        padding-top: 112px;
+        padding-bottom: 112px;
+    }
 }
 
-.feedback.container{
-    margin: 0 auto;
+.feedback-title-hide{
+    display: none;
 }
 
 .swiper {
@@ -63,25 +70,7 @@
   color: var(--white-color);
 }
 
-/* .swiper-button-prev,
-.swiper-button-next {
-    display: none !important;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    gap: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
-    padding: 12px;
-    width: 48px !important; 
-    height: 48px !important;
-}
-@media (min-width: 768px) {
-    .swiper-button-prev,
-        .swiper-button-next {
-            display: flex !important;
-        }
-} */
+
 .swiper-button-prev,
 .swiper-button-next {
   display: none !important;
@@ -130,7 +119,7 @@
 
 /* Только активная точка */
 .swiper-pagination-bullet-active {
-  background-color: #fff !important;
+  background-color: var(--white-color) !important;
   transform: scale(1.2);
   /* Увеличит точку в 1.5 раза */
   transition: transform 0.3s ease;
@@ -146,7 +135,7 @@
   position: relative;
   width: 20px;
   height: 19px;
-  background-color: #fff;
+  background-color: var(--white-color);
   /* Цвет пустой звезды */
   /* Рисуем форму звезды через маску (работает во всех браузерах) */
   clip-path: polygon(
@@ -171,7 +160,7 @@
   height: 100%;
   width: 0;
   /* По умолчанию звезда пустая */
-  background-color: #764191;
+  background-color: var(--btn-background);
   transition: width 0.3s ease;
 }
 
@@ -199,28 +188,12 @@
 }
 
 .btn-feedback-modal {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+ 
   margin: 0 auto;
 
-  border-radius: 12px;
-  padding: 10px 24px;
   width: 288px;
   height: 47px;
 
-  box-shadow:
-    0 1px 2px 0 rgba(6, 3, 7, 0.05),
-    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-    inset 0 0 0 1px rgba(6, 3, 7, 0.15),
-    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-  background: #764191;
-
-  font-family: 'IBM Plex Sans', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.5;
   color: var(--white-color);
 
   @media (min-width: 768px) {
