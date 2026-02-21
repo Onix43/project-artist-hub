@@ -8,7 +8,6 @@ import 'swiper/css/pagination';
 // init Swiper:
 const swiper = new Swiper('.swiper', {
   spaceBetween: 20,
-  loop: true,
   speed: 500,
 
   navigation: {
@@ -17,6 +16,7 @@ const swiper = new Swiper('.swiper', {
   },
   pagination: {
     el: '.swiper-pagination',
+    dynamicBullets: true,
     type: 'bullets',
     clickable: true,
   },

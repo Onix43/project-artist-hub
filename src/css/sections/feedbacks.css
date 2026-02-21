@@ -10,7 +10,6 @@
 }
 
 .feedback-title-hide{
-    /* margin: 0 auto; */
     display: none;
 }
 
@@ -120,7 +119,7 @@
 
 /* Только активная точка */
 .swiper-pagination-bullet-active {
-  background-color: #fff !important;
+  background-color: var(--white-color) !important;
   transform: scale(1.2);
   /* Увеличит точку в 1.5 раза */
   transition: transform 0.3s ease;
@@ -136,7 +135,7 @@
   position: relative;
   width: 20px;
   height: 19px;
-  background-color: #fff;
+  background-color: var(--white-color);
   /* Цвет пустой звезды */
   /* Рисуем форму звезды через маску (работает во всех браузерах) */
   clip-path: polygon(
@@ -161,7 +160,7 @@
   height: 100%;
   width: 0;
   /* По умолчанию звезда пустая */
-  background-color: #764191;
+  background-color: var(--btn-background);
   transition: width 0.3s ease;
 }
 
