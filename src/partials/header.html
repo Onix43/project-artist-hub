@@ -1,3 +1,41 @@
 <header class="header">
-  <div class="container"></div>
+  <div class="header-container container">
+
+    <!-- logo -->
+    <a href="./index.html" class="logo" aria-label="Go to homepage">
+      <svg class="logo-icon" width="106" height="30" aria-hidden="true">
+        <use href="./assets/icons/symbol-defs.svg#main-logo"></use>
+      </svg>
+    </a>
+
+    <!-- burger button -->
+    <button
+      class="burger"
+      type="button"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      data-menu-toggle
+    >
+      <!-- burger icon -->
+      <svg class="burger-icon" width="20" height="20" aria-hidden="true">
+        <use href="./assets/icons/symbol-defs.svg#burger-menu"></use>
+      </svg>
+
+      <!-- close icon -->
+      <svg class="close-icon" width="20" height="20" aria-hidden="true">
+        <use href="./assets/icons/symbol-defs.svg#close-button "></use>
+      </svg>
+    </button>
+
+    <!--  navigation -->
+    <nav class="nav" aria-label="Main navigation" data-menu>
+      <ul class="nav-list">
+        <li><a href="#artists">Artists</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#feedback">Reviews</a></li>
+      </ul>
+    </nav>
+
+  </div>
 </header>
+
