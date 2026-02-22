@@ -14,28 +14,35 @@
       type="button"
       aria-label="Toggle navigation menu"
       aria-expanded="false"
+      aria-controls="mobile-menu"
       data-menu-toggle
     >
       <!-- burger icon -->
-      <svg class="burger-icon" width="20" height="20" aria-hidden="true">
+      <svg class="burger-icon" width="24" height="24" aria-hidden="true">
         <use href="./assets/icons/symbol-defs.svg#burger-menu"></use>
       </svg>
 
       <!-- close icon -->
-      <svg class="close-icon" width="20" height="20" aria-hidden="true">
-        <use href="./assets/icons/symbol-defs.svg#close-button "></use>
+      <svg class="close-icon" width="12" height="12" aria-hidden="true">
+        <use href="./assets/icons/symbol-defs.svg#close-button"></use>
       </svg>
     </button>
 
-    <!--  navigation -->
-    <nav class="nav" aria-label="Main navigation" data-menu>
+    <!-- navigation -->
+    <nav
+      class="nav"
+      id="mobile-menu"
+      aria-label="Main navigation"
+      data-menu
+    >
       <ul class="nav-list">
         <li><a href="#artists">Artists</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#feedback">Reviews</a></li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#feedbacks">Reviews</a></li>
       </ul>
     </nav>
 
   </div>
 </header>
 
+<script type="module" src="/src/js/main.js"></script>

@@ -18,6 +18,7 @@ main {
 }
 
 .header-container {
+      max-width: 1440px;
   height: 64px;
   display: flex;
   align-items: center;
@@ -25,6 +26,7 @@ main {
   position: relative;
   z-index: 992;
   padding: 0 16px;
+      margin: 0px auto;
 }
 
 /* logo */
@@ -42,8 +44,6 @@ main {
 /* burger */
 .burger {
   position: relative;
-  width: 24px;
-  height: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -52,14 +52,13 @@ main {
   padding: 0;
   cursor: pointer;
   z-index: 1100;
+  padding-right: 24px;
 }
 
 /* icon */
 .burger-icon,
 .close-icon {
   position: absolute;
-  width: 20px;
-  height: 20px;
   fill: var(--white-color);
   stroke: var(--white-color);
   transition:
@@ -119,7 +118,6 @@ main {
   color: var(--white-color);
   font-weight: var(--font-md);
   font-size: 26px;
-  line-height: 1.5;
   opacity: 1;
   transition: opacity 200ms ease;
 }
@@ -166,7 +164,7 @@ body.is-menu-open {
 
   .header-container {
     height: 72px;
-    padding: 0 32px;
+    padding: 0 64px;
   }
 
   .burger {
@@ -189,12 +187,11 @@ body.is-menu-open {
   }
 
   .nav-list a {
-    font-weight: 400;
     font-size: 18px;
   }
 }
 
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1440px) {
   .header-container {
     padding: 0 64px;
   }
