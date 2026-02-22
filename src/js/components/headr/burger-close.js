@@ -1,4 +1,4 @@
-import { refs } from '../../refs.js';
+import refs from '../../refs.js';
 
 if (refs.menu && refs.toggleBtn) {
   const openMenu = () => {
@@ -21,9 +21,7 @@ if (refs.menu && refs.toggleBtn) {
 
   refs.toggleBtn.addEventListener('click', toggleMenu);
 
-  refs.navLinks.forEach(link =>
-    link.addEventListener('click', closeMenu)
-  );
+  refs.navLinks.forEach(link => link.addEventListener('click', closeMenu));
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeMenu();
