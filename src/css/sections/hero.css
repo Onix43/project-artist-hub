@@ -5,7 +5,6 @@
     position: relative;
     background: var(--background);
     overflow: hidden;
-    margin-bottom: 112px;
   }
 
   .hero::before {
@@ -24,15 +23,15 @@
   }
 
   .hero .container {
-    max-width: 320px;
+    padding-top: 80px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 64px;
   }
 
   .hero-left {
-    margin-top: 80px;
+    /* margin-top: 80px; */
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -97,8 +96,8 @@
   }
 
   .hero-image {
-    width: 338px;
-    height: 542px;
+    width: 288px;
+    height: 385px;
     display: block;
     border-radius: 16px;
     overflow: hidden;
@@ -117,12 +116,15 @@
 
   /* ============TABLET STYLES============ */
   @media screen and (min-width: 768px) {
+    .hero .container {
+      padding-top: 32px;
+      gap: 32px;
+    }
     .hero-left {
       margin-top: 0;
     }
 
     .hero-title {
-      margin-top: 32px;
       width: 624px;
     }
 
@@ -145,6 +147,7 @@
   /* ============DESKTOP STYLES============ */
   @media screen and (min-width: 1440px) {
     .hero .container {
+      padding-top: 0;
       flex-direction: row;
       align-items: center;
       gap: 60px;
