@@ -109,11 +109,11 @@
     overflow: hidden;
     background-image: -webkit-image-set(
       url('/hero-desktop.png') 1x,
-      url('/hero-desktop@2x.png') 2x
+      url('/hero-desktop2x.png') 2x
     );
     background-image: image-set(
       url('/hero-desktop.png') 1x,
-      url('/hero-desktop@2x.png') 2x
+      url('/hero-desktop2x.png') 2x
     );
     background-size: cover;
     background-position: top right;
