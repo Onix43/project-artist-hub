@@ -47,7 +47,7 @@
   max-width: 90vw;
   max-height: 90vh;
   overflow-y: auto;
-  width: 100%;
+  width: 288px;
   animation: modalSlideIn 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -360,7 +360,7 @@
 /* ========== TABLET ========== */
 @media only screen and (min-width: 768px) {
   .modal-artist-wrapper {
-    max-width: 680px;
+    max-width: 702px;
     padding: 48px 36px 36px;
   }
 
