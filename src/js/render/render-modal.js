@@ -1,70 +1,7 @@
-import { getArtistById } from '../api/artists-api.js';
+import { msToMinutesSeconds } from '../utils/seconds-convert.js';
 import sprite from '../../assets/icons/symbol-defs.svg';
 
-let currentEventListeners = [];
-
-export async function openArtistModal(artistId) {
-  const modal = document.querySelector('.modal-artist');
-  const closeBtn = document.querySelector('.modal-artist-close');
-  const loader = document.querySelector('.modal-artist-loader');
-  const content = document.querySelector('.modal-artist-content');
-
-  if (!modal || !closeBtn || !loader || !content) {
-    console.error('Modal elements not found in DOM');
-    return;
-  }
-
-  modal.classList.add('is-open');
-  document.body.style.overflow = 'hidden';
-
-  // Show loader, hide content
-  loader.style.display = 'block';
-  content.style.display = 'none';
-
-  try {
-    const data = await getArtistById(artistId);
-    renderModalContent(content, data);
-
-    // Hide loader, show content
-    loader.style.display = 'none';
-    content.style.display = 'flex';
-  } catch (error) {
-    console.error('Error fetching artist data:', error);
-    loader.textContent = 'Failed to load artist data. Please try again.';
-  }
-
-  // Event listeners for closing
-  const handleClose = () => closeModal(modal);
-  const handleOutsideClick = e => {
-    if (e.target === modal) closeModal(modal);
-  };
-  const handleEscape = e => {
-    if (e.key === 'Escape') closeModal(modal);
-  };
-
-  closeBtn.addEventListener('click', handleClose);
-  modal.addEventListener('click', handleOutsideClick);
-  document.addEventListener('keydown', handleEscape);
-
-  currentEventListeners = [
-    { el: closeBtn, event: 'click', handler: handleClose },
-    { el: modal, event: 'click', handler: handleOutsideClick },
-    { el: document, event: 'keydown', handler: handleEscape },
-  ];
-}
-
-function closeModal(modal) {
-  modal.classList.remove('is-open');
-  document.body.style.overflow = '';
-
-  // Remove all event listeners
-  currentEventListeners.forEach(({ el, event, handler }) => {
-    el.removeEventListener(event, handler);
-  });
-  currentEventListeners = [];
-}
-
-function renderModalContent(content, data) {
+export function renderModalContent(content, data) {
   const {
     strArtist: name,
     strArtistThumb,
@@ -194,20 +131,4 @@ function renderModalContent(content, data) {
       </ul>
     </div>
   `;
-}
-
-function msToMinutesSeconds(milliseconds) {
-  // Calculate total seconds (rounding can be adjusted based on desired precision)
-  const totalSeconds = Math.floor(milliseconds / 1000);
-
-  // Calculate minutes (using modulo 60 to reset after each hour if needed, though not strictly required for just minutes/seconds)
-  const minutes = Math.floor(totalSeconds / 60);
-
-  // Calculate remaining seconds using the modulo operator
-  const seconds = totalSeconds % 60;
-
-  // Format seconds to always be two digits (e.g., '05' instead of '5')
-  const formattedSeconds = String(seconds).padStart(2, '0');
-
-  return `${minutes}:${formattedSeconds}`;
 }
