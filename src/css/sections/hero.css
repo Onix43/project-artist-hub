@@ -66,7 +66,7 @@
     padding: 10px 24px;
     width: 288px;
     height: 47px;
-    background: #764191;
+    background: var(--btn-background);
     color: #fff;
     font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
@@ -81,14 +81,19 @@
       inset 0 0 0 1px rgba(6, 3, 7, 0.15),
       inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
       inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-    transition: background var(--transition);
+    transition: var(--transition);
     align-self: flex-start;
     box-sizing: border-box;
   }
 
   .hero-btn:hover,
   .hero-btn:focus {
-    background: #8b4dab;
+    opacity: 0.6;
+  }
+
+  .hero-btn:active {
+    box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
+    background: var(--btn-background);
   }
 
   .btn-hero-icon {
