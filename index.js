@@ -1,30 +1,30 @@
-import{S,N as E,P as j,a as T}from"./assets/vendor-fJp_pnmi.js";(function(){const s=document.createElement("link").relList;if(s&&s.supports&&s.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))a(t);new MutationObserver(t=>{for(const e of t)if(e.type==="childList")for(const l of e.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&a(l)}).observe(document,{childList:!0,subtree:!0});function i(t){const e={};return t.integrity&&(e.integrity=t.integrity),t.referrerPolicy&&(e.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?e.credentials="include":t.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function a(t){if(t.ep)return;t.ep=!0;const e=i(t);fetch(t.href,e)}})();new S(".swiper",{spaceBetween:20,speed:500,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},pagination:{el:".swiper-pagination",dynamicBullets:!0,type:"bullets",clickable:!0},modules:[E,j]});const f=T.create({baseURL:"https://sound-wave.b.goit.study/api"});async function x(r){return(await f.get("/artists",{params:{limit:8,...r}})).data}async function F(r){return(await f.get(`/artists/${r}/albums`)).data}const v={listArtists:document.querySelector(".artists-list"),listFeedbacks:document.querySelector(".js-list-feedbacks")},y="/project-artist-hub/assets/symbol-defs-CxF1Hgjl.svg";async function N(){const{artists:r}=await x(),s=r.map(({_id:i,strArtist:a,strBiographyEN:t,strArtistThumb:e,genres:l})=>`
+import{S as A,N as S,P as B,a as j}from"./assets/vendor-fJp_pnmi.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))a(s);new MutationObserver(s=>{for(const e of s)if(e.type==="childList")for(const r of e.addedNodes)r.tagName==="LINK"&&r.rel==="modulepreload"&&a(r)}).observe(document,{childList:!0,subtree:!0});function i(s){const e={};return s.integrity&&(e.integrity=s.integrity),s.referrerPolicy&&(e.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?e.credentials="include":s.crossOrigin==="anonymous"?e.credentials="omit":e.credentials="same-origin",e}function a(s){if(s.ep)return;s.ep=!0;const e=i(s);fetch(s.href,e)}})();new A(".swiper",{spaceBetween:20,speed:500,navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},pagination:{el:".swiper-pagination",dynamicBullets:!0,type:"bullets",clickable:!0},modules:[S,B]});const g=j.create({baseURL:"https://sound-wave.b.goit.study/api"});async function x(n){return(await g.get("/artists",{params:{limit:8,...n}})).data}async function T(n){return(await g.get(`/artists/${n}/albums`)).data}const l={listArtists:document.querySelector(".artists-list"),listFeedbacks:document.querySelector(".js-list-feedbacks"),menu:document.querySelector("[data-menu]"),toggleBtn:document.querySelector("[data-menu-toggle]"),navLinks:document.querySelectorAll(".nav-list a")},b="/project-artist-hub/assets/symbol-defs-CxF1Hgjl.svg";async function q(){const{artists:n}=await x(),t=n.map(({_id:i,strArtist:a,strBiographyEN:s,strArtistThumb:e,genres:r})=>`
         <li class="artists-list-item" data-artist-id="${i}">
           <div class="list-item-img">
             <img src="${e}" alt="${a}" />
           </div>
           <ul class="artists-tags-list">
-            ${l.map(n=>`
-                <li class="tags-list-item">${n}</li>
+            ${r.map(o=>`
+                <li class="tags-list-item">${o}</li>
               `).join("")}
           </ul>
           <h3 class="list-item-title">${a}</h3>
           <p class="list-item-descr">
-            ${t}
+            ${s}
           </p>
           <button class="list-item-btn">
             Load More
             <span>
               <svg width="8" height="14">
-                <use href="${y}#learn-more"></use>
+                <use href="${b}#learn-more"></use>
               </svg>
             </span>
           </button>
         </li>
-      `).join("");v.listArtists.insertAdjacentHTML("beforeend",s)}N();async function O(){return(await f.get("/feedbacks",{params:{limit:10,page:1}})).data}async function q(){const s=(await O()).data.map(({name:i,rating:a,descr:t})=>{const e=a-Math.floor(a),l=Math.floor(a);let n;return e>=.1&&e<=.2?n=l:e>.2&&e<.8?n=`${l}-5`:e>=.8&&e<=.9?n=l+1:n=l,`
+      `).join("");l.listArtists.insertAdjacentHTML("beforeend",t)}q();async function F(){return(await g.get("/feedbacks",{params:{limit:10,page:1}})).data}async function N(){const t=(await F()).data.map(({name:i,rating:a,descr:s})=>{const e=a-Math.floor(a),r=Math.floor(a);let o;return e>=.1&&e<=.2?o=r:e>.2&&e<.8?o=`${r}-5`:e>=.8&&e<=.9?o=r+1:o=r,`
          <li class="swiper-slide">
             <div class="wrapper">
-              <div class="stars-static rating-set-${n}">
+              <div class="stars-static rating-set-${o}">
                 <div class="star"></div>
                 <div class="star"></div>
                 <div class="star"></div>
@@ -32,34 +32,34 @@ import{S,N as E,P as j,a as T}from"./assets/vendor-fJp_pnmi.js";(function(){cons
                 <div class="star"></div>
               </div>
               <p class="user-feedback">
-              ${t}
+              ${s}
               </p>
               <p class="user-name">${i}</p>
             </div>
-          </li>`}).join("");v.listFeedbacks.insertAdjacentHTML("beforeend",s)}q();function C(r){const s=Math.floor(r/1e3),i=Math.floor(s/60),a=s%60,t=String(a).padStart(2,"0");return`${i}:${t}`}function P(r,s){const{strArtist:i,strArtistThumb:a,intFormedYear:t,intDiedYear:e,strGender:l,intMembers:n,strCountry:o,strBiographyEN:b,genres:g=[],albumsList:h=[]}=s;let m="Information missing";t&&e?m=`${t} – ${e}`:t&&(m=`${t} – present`);const $=g.length?g.map(d=>`<li class="modal-artist-genre-item">${d}</li>`).join(""):'<li class="modal-artist-genre-item">No genres listed</li>',k=h.map(d=>{const L=(d.tracks||[]).map(c=>{const M=C(c.intDuration)||"",A=c.movie?`<a class="modal-artist-track-link" href="${c.movie}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${c.strTrack} on YouTube">
+          </li>`}).join("");l.listFeedbacks.insertAdjacentHTML("beforeend",t)}N();function O(n){const t=Math.floor(n/1e3),i=Math.floor(t/60),a=t%60,s=String(a).padStart(2,"0");return`${i}:${s}`}function C(n,t){const{strArtist:i,strArtistThumb:a,intFormedYear:s,intDiedYear:e,strGender:r,intMembers:o,strCountry:c,strBiographyEN:v,genres:y=[],albumsList:h=[]}=t;let u="Information missing";s&&e?u=`${s} – ${e}`:s&&(u=`${s} – present`);const k=y.length?y.map(m=>`<li class="modal-artist-genre-item">${m}</li>`).join(""):'<li class="modal-artist-genre-item">No genres listed</li>',$=h.map(m=>{const w=(m.tracks||[]).map(d=>{const M=O(d.intDuration)||"",E=d.movie?`<a class="modal-artist-track-link" href="${d.movie}" target="_blank" rel="noopener noreferrer" aria-label="Watch ${d.strTrack} on YouTube">
             <svg class="modal-artist-track-icon" width="24" height="24">
-              <use href="${y}#youtube"></use>
+              <use href="${b}#youtube"></use>
             </svg>
            </a>`:'<div class="modal-artist-track-link"></div>';return`
         <li class="modal-artist-track-item">
-          <p class="modal-artist-track-name">${c.strTrack}</p>
+          <p class="modal-artist-track-name">${d.strTrack}</p>
           <p class="modal-artist-track-time">${M}</p>
-          ${A}
+          ${E}
         </li>
       `}).join("");return`
       <li class="modal-artist-album-item">
-        <h4 class="modal-artist-album-name">${d.strAlbum}</h4>
+        <h4 class="modal-artist-album-name">${m.strAlbum}</h4>
         <div class="modal-artist-track-header">
           <p class="modal-artist-track-title-name">Track</p>
           <p class="modal-artist-track-title-time">Time</p>
           <p class="modal-artist-track-title-link">Link</p>
         </div>
         <ul class="modal-artist-track-list">
-          ${L}
+          ${w}
         </ul>
       </li>
-    `}).join(""),w=b?b.split(`
-`)[0]:"No biography available.";r.innerHTML=`
+    `}).join(""),L=v?v.split(`
+`)[0]:"No biography available.";n.innerHTML=`
     <h3 class="modal-artist-name">${i||""}</h3>
 
     <div class="modal-artist-header">
@@ -69,32 +69,32 @@ import{S,N as E,P as j,a as T}from"./assets/vendor-fJp_pnmi.js";(function(){cons
         <div class="modal-artist-info">
           <p class="modal-artist-years">
             <span class="modal-artist-info-label">Years active</span>
-            <span class="modal-artist-years-value">${m}</span>
+            <span class="modal-artist-years-value">${u}</span>
           </p>
-          ${l?`
+          ${r?`
           <p class="modal-artist-gender">
             <span class="modal-artist-info-label">Sex</span>
-            <span class="modal-artist-gender-value">${l}</span>
+            <span class="modal-artist-gender-value">${r}</span>
           </p>`:""}
-          ${n?`
+          ${o?`
           <p class="modal-artist-members">
             <span class="modal-artist-info-label">Members</span>
-            <span class="modal-artist-members-value">${n}</span>
+            <span class="modal-artist-members-value">${o}</span>
           </p>`:""}
           <p class="modal-artist-country">
             <span class="modal-artist-info-label">Country</span>
-            <span class="modal-artist-country-value">${o||"Information missing"}</span>
+            <span class="modal-artist-country-value">${c||"Information missing"}</span>
           </p>
         </div>
 
         <div class="modal-artist-description">
           <h4 class="modal-artist-description-title">Biography</h4>
-          <p class="modal-artist-description-text">${w}</p>
+          <p class="modal-artist-description-text">${L}</p>
         </div>
         
         <div class="modal-artist-genres">
           <ul class="modal-artist-genre-list">
-            ${$}
+            ${k}
           </ul>
         </div>
       </div>
@@ -103,8 +103,8 @@ import{S,N as E,P as j,a as T}from"./assets/vendor-fJp_pnmi.js";(function(){cons
     <div class="modal-artist-albums">
       <h4 class="modal-artist-albums-title">Albums</h4>
       <ul class="modal-artist-album-list">
-        ${k}
+        ${$}
       </ul>
     </div>
-  `}let p=[];async function B(r){const s=document.querySelector(".modal-artist"),i=document.querySelector(".modal-artist-close"),a=document.querySelector(".modal-artist-loader"),t=document.querySelector(".modal-artist-content");if(!s||!i||!a||!t){console.error("Modal elements not found in DOM");return}s.classList.add("is-open"),document.body.style.overflow="hidden",a.style.display="block",t.style.display="none";try{const o=await F(r);P(t,o),a.style.display="none",t.style.display="flex"}catch{a.textContent="Failed to load artist data. Please try again."}const e=()=>u(s),l=o=>{o.target===s&&u(s)},n=o=>{o.key==="Escape"&&u(s)};i.addEventListener("click",e),s.addEventListener("click",l),document.addEventListener("keydown",n),p=[{el:i,event:"click",handler:e},{el:s,event:"click",handler:l},{el:document,event:"keydown",handler:n}]}function u(r){r.classList.remove("is-open"),document.body.style.overflow="",p.forEach(({el:s,event:i,handler:a})=>{s.removeEventListener(i,a)}),p=[]}v.listArtists.addEventListener("click",r=>{const s=r.target.closest(".list-item-btn");if(!s)return;const i=s.closest("[data-artist-id]").dataset.artistId;i&&B(i)});
+  `}let f=[];async function P(n){const t=document.querySelector(".modal-artist"),i=document.querySelector(".modal-artist-close"),a=document.querySelector(".modal-artist-loader"),s=document.querySelector(".modal-artist-content");if(!t||!i||!a||!s){console.error("Modal elements not found in DOM");return}t.classList.add("is-open"),document.body.style.overflow="hidden",a.style.display="block",s.style.display="none";try{const c=await T(n);C(s,c),a.style.display="none",s.style.display="flex"}catch{a.textContent="Failed to load artist data. Please try again."}const e=()=>p(t),r=c=>{c.target===t&&p(t)},o=c=>{c.key==="Escape"&&p(t)};i.addEventListener("click",e),t.addEventListener("click",r),document.addEventListener("keydown",o),f=[{el:i,event:"click",handler:e},{el:t,event:"click",handler:r},{el:document,event:"keydown",handler:o}]}function p(n){n.classList.remove("is-open"),document.body.style.overflow="",f.forEach(({el:t,event:i,handler:a})=>{t.removeEventListener(i,a)}),f=[]}l.listArtists.addEventListener("click",n=>{const t=n.target.closest(".list-item-btn");if(!t)return;const i=t.closest("[data-artist-id]").dataset.artistId;i&&P(i)});if(l.menu&&l.toggleBtn){const n=()=>{l.menu.classList.add("is-open"),l.toggleBtn.classList.add("is-open"),l.toggleBtn.setAttribute("aria-expanded","true"),document.body.classList.add("is-menu-open")},t=()=>{l.menu.classList.remove("is-open"),l.toggleBtn.classList.remove("is-open"),l.toggleBtn.setAttribute("aria-expanded","false"),document.body.classList.remove("is-menu-open")},i=()=>{l.menu.classList.contains("is-open")?t():n()};l.toggleBtn.addEventListener("click",i),l.navLinks.forEach(a=>a.addEventListener("click",t)),document.addEventListener("keydown",a=>{a.key==="Escape"&&t()}),window.addEventListener("resize",()=>{window.innerWidth>=768&&t()})}
 //# sourceMappingURL=index.js.map
