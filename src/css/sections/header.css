@@ -179,11 +179,13 @@ body.is-menu-open {
     background: none;
     flex-direction: row;
     justify-content: flex-end;
-  }
+    padding-top: 0;
 
+  }
   .nav-list {
     flex-direction: row;
     gap: 32px;
+
   }
 
   .nav-list a {
