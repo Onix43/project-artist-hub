@@ -100,7 +100,7 @@ main {
   z-index: 1000;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  padding-top: 103px;
 }
 
 .nav.is-open {
