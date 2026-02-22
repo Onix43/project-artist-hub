@@ -34,6 +34,16 @@ footer {
 .footer-copyright {
   padding-bottom: 12px;
 }
+@media (hover: hover) {
+  .footer-nav-link:hover {
+    transition: var(--transition);
+    color: var(--btn-background);
+  }
+  .footer-soc-icon:hover {
+    transition: var(--transition);
+    fill: var(--btn-background);
+  }
+}
 @media only screen and (min-width: 768px) {
   .footer-logo {
     width: 116px;
