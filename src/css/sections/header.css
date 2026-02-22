@@ -1,1 +1,198 @@
+/* Чтобы при переходе по якорям хедер не перекрывал секции */
+html {
+  scroll-padding-top: 64px; /* mobile */
+}
 
+/* Отступ для контента под фиксированный хедер */
+main {
+  padding-top: 64px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 996;
+  background-color: var(--main-color);
+}
+
+.header-container {
+      max-width: 1440px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 992;
+  padding: 0 16px;
+      margin: 0px auto;
+}
+
+/* logo */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  z-index: 1100;
+}
+
+.logo-icon {
+  display: block;
+  fill: var(--white-color);
+}
+
+/* burger */
+.burger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1100;
+  padding-right: 24px;
+}
+
+/* icon */
+.burger-icon,
+.close-icon {
+  position: absolute;
+  fill: var(--white-color);
+  stroke: var(--white-color);
+  transition:
+    opacity 250ms ease,
+    transform 350ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+
+.burger-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.close-icon {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.6);
+}
+
+
+.burger.is-open .burger-icon {
+  opacity: 0;
+  transform: rotate(90deg) scale(0.6);
+}
+
+.burger.is-open .close-icon {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+/* mobile overlay */
+.nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--main-color);
+  z-index: 1000;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav.is-open {
+  display: flex;
+}
+
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.nav-list a {
+  position: relative;
+  color: var(--white-color);
+  font-weight: var(--font-md);
+  font-size: 26px;
+  opacity: 1;
+  transition: opacity 200ms ease;
+}
+
+.nav-list a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--white-color);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 250ms ease;
+}
+
+/* hover + focus */
+.nav-list a:hover,
+.nav-list a:focus,
+.nav-list a:focus-visible {
+  opacity: 0.7;
+  outline: none;
+}
+
+.nav-list a:hover::after,
+.nav-list a:focus::after,
+.nav-list a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+body.is-menu-open {
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  main {
+    padding-top: 72px;
+  }
+
+  .header-container {
+    height: 72px;
+    padding: 0 64px;
+  }
+
+  .burger {
+    display: none;
+  }
+
+  .nav {
+    display: flex !important;
+    position: static;
+    width: auto;
+    height: auto;
+    background: none;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    gap: 32px;
+  }
+
+  .nav-list a {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .header-container {
+    padding: 0 64px;
+  }
+}
