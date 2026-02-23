@@ -5,7 +5,7 @@ import refs from '../refs';
 
 refs.loadMoreArtistsBtn.addEventListener('click', onLoadMoreClick);
 
-export async function renderArtistsList() {
+async function renderArtistsList() {
   try {
     const { artists, page } = await getArtists();
     createArtistsList(artists, page);
