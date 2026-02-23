@@ -5,6 +5,11 @@
   padding-top: 64px;
   padding-bottom: 64px;
 }
+.artists-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 @media only screen and (min-width: 1440px) {
   .artists .container {
     padding-top: 112px;
@@ -42,7 +47,7 @@
   align-items: center;
   flex-direction: column;
   gap: 64px;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
 }
 
 @media only screen and (min-width: 768px) {
@@ -88,6 +93,12 @@
   gap: 16px;
   margin-bottom: 16px;
 }
+
+.tags-list-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 4px 10px;
+}
 .list-item-title {
   font-weight: 700;
   font-size: 32px;
@@ -127,38 +138,72 @@
   & svg {
     fill: currentColor;
   }
+  &:active {
+    opacity: 1;
+  }
 }
 
-.load-more-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  gap: 12px;
-  width: 100%;
+/* #region Loader */
 
-  border-radius: 12px;
-  padding: 10px 24px;
-  border-color: transparent;
-  background: #764191;
-
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1.5;
+.loader {
   color: #fff;
+  display: none;
+
+  position: relative;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+}
+.loader::after {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: currentColor;
+  position: absolute;
+  bottom: 10px;
+  right: -5px;
+  box-sizing: border-box;
+  animation: animloader 1s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    box-shadow:
+      10px 0 rgba(255, 255, 255, 0),
+      20px 0 rgba(255, 255, 255, 0);
+  }
+  50% {
+    box-shadow:
+      10px 0 white,
+      20px 0 rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow:
+      10px 0 white,
+      20px 0 white;
+  }
+}
+
+/* #endregion */
+
+.load-more-btn {
+  color: #fff;
+  border: none;
+  width: 100%;
+  transition: var(--transition);
 
   & svg {
     fill: currentColor;
   }
+}
 
-  &:hover {
-    box-shadow:
-      0 1px 2px 0 rgba(6, 3, 7, 0.05),
-      inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
-      inset 0 0 0 1px rgba(6, 3, 7, 0.15),
-      inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
-      inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
-  }
+.load-more-btn[hidden] {
+  display: none;
+}
+
+.load-more-btn:active {
+  opacity: 1;
 }
 
 @media only screen and (min-width: 768px) {
@@ -170,6 +215,14 @@
 @media only screen and (min-width: 1440px) {
   .load-more-btn {
     max-width: 170px;
+  }
+}
+/* #endregion */
+
+/* #region Hover effects */
+@media (hover: hover) {
+  .load-more-btn:hover {
+    opacity: 0.6;
   }
 }
 /* #endregion */
