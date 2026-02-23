@@ -5,7 +5,7 @@ export function createCard(artist) {
   return `
       <li class="artists-list-item" data-artist-id="${_id}">
         <div class="list-item-img">
-          <img src="${strArtistThumb}" alt="${strArtist}" />
+          <img src="${strArtistThumb}" alt="${strArtist}" loading="lazy"/>
         </div>
         <ul class="artists-tags-list">
           ${genres

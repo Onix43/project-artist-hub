@@ -108,12 +108,12 @@
     border-radius: 16px;
     overflow: hidden;
     background-image: -webkit-image-set(
-      url('/hero-desktop.png') 1x,
-      url('/hero-desktop2x.png') 2x
+      url('/hero-desktop.webp') 1x,
+      url('/hero-desktop2x.webp') 2x
     );
     background-image: image-set(
-      url('/hero-desktop.png') 1x,
-      url('/hero-desktop2x.png') 2x
+      url('/hero-desktop.webp') 1x,
+      url('/hero-desktop2x.webp') 2x
     );
     background-size: cover;
     background-position: top right;
