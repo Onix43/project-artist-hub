@@ -4,7 +4,6 @@ import { hideLoader, showLoader } from '../../utils/loader';
 import { createArtistsList } from './createList';
 
 const btn = refs.loadMoreArtistsBtn;
-console.log(btn);
 const listArtists = refs.listArtists;
 let startPage = 1;
 
