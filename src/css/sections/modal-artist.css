@@ -83,8 +83,8 @@
 /* Close button */
 .modal-artist-close {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 11px;
+  right: 11px;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
@@ -97,15 +97,9 @@
   z-index: 10;
 }
 
-.modal-artist-close:hover {
-  background: rgba(255, 255, 255, 0.15);
-  transform: rotate(90deg);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
 .modal-artist-close-icon {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   fill: var(--white-color);
   opacity: 0.8;
 }
@@ -134,6 +128,7 @@
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin: 0;
+  text-align: center;
   background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.6));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -157,28 +152,33 @@
 /* Artist image */
 .modal-artist-image {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 167px;
   border-radius: 18px;
   object-fit: cover;
+  object-position: top;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* Info block */
 .modal-artist-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .modal-artist-info-label {
   display: block;
+  width: 146px;
   font-size: 14px;
-  text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: var(--font-sb);
   color: rgba(255, 255, 255, 0.4);
-  margin-bottom: 4px;
+}
+.modal-artist-years,
+.modal-artist-gender,
+.modal-artist-members,
+.modal-artist-country {
+  width: 200px;
 }
 
 .modal-artist-years-value,
@@ -186,6 +186,7 @@
 .modal-artist-members-value,
 .modal-artist-country-value {
   font-size: 17px;
+  width: 200px;
   font-family: var(--font-sans);
   color: var(--white-color);
   font-weight: var(--font-md);
@@ -345,15 +346,30 @@
     padding: 48px;
   }
 
-  .modal-artist-header {
+  .modal-artist-close-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .modal-artist-info {
+    width: 450px;
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 24px;
+  }
+
+  .modal-artist-header {
     align-items: flex-start;
   }
 
   .modal-artist-image {
-    width: 260px;
+    width: 654px;
+    height: 402px;
     min-width: 260px;
-    aspect-ratio: 1 / 1;
+    object-position: top;
+    /* aspect-ratio: 0.8 / 1; */
   }
 
   .modal-artist-name {
@@ -363,15 +379,25 @@
   .modal-artist-album-list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 32px;
   }
 }
 
 /* ========== DESKTOP ========== */
 @media only screen and (min-width: 1200px) {
   .modal-artist-wrapper {
-    max-width: 1100px;
+    max-width: 1312px;
     padding: 64px;
+  }
+
+  .modal-artist-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(90deg);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .modal-artist-header {
+    flex-direction: row;
   }
 
   .modal-artist-name {
@@ -379,12 +405,14 @@
   }
 
   .modal-artist-image {
-    width: 320px;
-    min-width: 320px;
+    max-width: 576px;
+    min-width: 576px;
+    height: 354px;
+    /* aspect-ratio: 1 / 0.9; */
   }
 
   .modal-artist-album-list {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .modal-artist-track-link:hover {
     opacity: 1;
