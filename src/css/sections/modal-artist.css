@@ -7,7 +7,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
@@ -44,17 +44,17 @@
     0 0 0 1px rgba(255, 255, 255, 0.03);
   color: var(--white-color);
   position: relative;
-  max-width: 90vw;
+  width: 100%;
+  max-width: 400px;
   max-height: 90vh;
   overflow-y: auto;
-  width: 100%;
-  animation: modalSlideIn 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: modalSlideIn 450ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes modalSlideIn {
   from {
     opacity: 0;
-    transform: translateY(24px) scale(0.96);
+    transform: translateY(30px) scale(0.98);
   }
   to {
     opacity: 1;
@@ -72,40 +72,36 @@
 }
 
 .modal-artist-wrapper::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
 }
 
 .modal-artist-wrapper::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 /* Close button */
 .modal-artist-close {
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  top: 11px;
+  right: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   cursor: pointer;
-  padding: 8px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all var(--transition);
-  z-index: 1;
-}
-
-.modal-artist-close:hover {
-  background: rgba(255, 255, 255, 0.12);
-  transform: rotate(90deg);
+  z-index: 10;
 }
 
 .modal-artist-close-icon {
-  width: 16px;
-  height: 16px;
-  fill: rgba(255, 255, 255, 0.7);
+  width: 14px;
+  height: 14px;
+  fill: var(--white-color);
+  opacity: 0.8;
 }
 
 /* Loader */
@@ -121,18 +117,19 @@
 .modal-artist-content {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 32px;
 }
 
 /* Artist name */
 .modal-artist-name {
   font-family: var(--font-epilogue);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: var(--font-b);
-  line-height: 1.15;
-  letter-spacing: -0.02em;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
   margin: 0;
-  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.7));
+  text-align: center;
+  background: linear-gradient(135deg, #ffffff, rgba(255, 255, 255, 0.6));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -142,58 +139,66 @@
 .modal-artist-header {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 28px;
 }
 
 /* Details column */
 .modal-artist-details {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
 }
 
 /* Artist image */
 .modal-artist-image {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 14px;
+  height: 167px;
+  border-radius: 18px;
   object-fit: cover;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  object-position: top;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
 }
 
 /* Info block */
 .modal-artist-info {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .modal-artist-info-label {
+  display: block;
+  width: 146px;
+  font-size: 14px;
+  letter-spacing: 0.05em;
   font-weight: var(--font-sb);
-  color: var(--white-color);
+  color: rgba(255, 255, 255, 0.4);
 }
-
-/* Years */
 .modal-artist-years,
 .modal-artist-gender,
 .modal-artist-members,
 .modal-artist-country {
-  display: flex;
-  flex-direction: column;
-  font-size: 18px;
+  width: 200px;
+}
+
+.modal-artist-years-value,
+.modal-artist-gender-value,
+.modal-artist-members-value,
+.modal-artist-country-value {
+  font-size: 17px;
+  width: 200px;
   font-family: var(--font-sans);
-  line-height: 1.9;
   color: var(--white-color);
+  font-weight: var(--font-md);
 }
 
 /* Description */
 .modal-artist-description-title,
 .modal-artist-albums-title {
   font-family: var(--font-epilogue);
-  font-size: 17px;
+  font-size: 18px;
   font-weight: var(--font-sb);
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
   color: var(--white-color);
   letter-spacing: -0.01em;
 }
@@ -201,9 +206,9 @@
 .modal-artist-description-text {
   margin: 0;
   font-family: var(--font-sans);
-  font-size: 18px;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Genres */
@@ -213,116 +218,81 @@
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .modal-artist-genre-item {
   color: var(--white-color);
   padding: 4px 10px;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 14px;
   font-family: var(--font-sans);
   font-weight: var(--font-md);
-  border: 1px solid rgba(118, 65, 145, 0.3);
-  transition: all var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  /* transition: all var(--transition); */
 }
 
-.modal-artist-genre-item:hover {
-  background: rgba(118, 65, 145, 0.28);
+/* .modal-artist-genre-item:hover {
+  background: rgba(118, 65, 145, 0.25);
   border-color: rgba(118, 65, 145, 0.5);
-}
+  transform: translateY(-1px);
+} */
 
 /* Albums */
 .modal-artist-album-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .modal-artist-album-item {
   background: #1e1c1f;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
-  padding: 16px;
+  border-radius: 16px;
+  padding: 14px 11px;
   transition: all var(--transition);
 }
 
-.modal-artist-album-item h4 {
+.modal-artist-album-name {
   font-family: var(--font-epilogue);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: var(--font-sb);
-  margin: 0 0 12px 0;
+  margin: 0 0 16px 0;
   color: var(--white-color);
-  letter-spacing: -0.01em;
 }
 
-/* Tracks */
+/* Tracks Table Layout */
+.modal-artist-track-header,
 .modal-artist-track-item {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 60px 40px;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
+  padding: 7px 12px;
 }
 
 .modal-artist-track-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-left: 12px;
-  padding-right: 4px;
-  padding-bottom: 4px;
-  padding-top: 4px;
-  gap: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+  margin-bottom: 4px;
 }
 
-.modal-artist-track-name,
-.modal-artist-track-time,
-.modal-artist-track-link {
-  font-weight: 400;
-  font-size: 12px;
-  font-family: var(--font-sans);
-  line-height: 150%;
-  color: var(--white-color);
-}
-.modal-artist-track-title-link,
+.modal-artist-track-title-name,
 .modal-artist-track-title-time,
-.modal-artist-track-title-name {
-  font-family: var(--font-family);
-  font-weight: 600;
-  font-size: 8px;
-  line-height: 150%;
-  text-align: center;
-  color: var(--white-color);
-}
 .modal-artist-track-title-link {
-  width: 35px;
-}
-.modal-artist-track-title-time {
-  width: 102px;
-}
-.modal-artist-track-title-name {
-  width: 97px;
-  text-align: left;
-}
-.modal-artist-track-header {
-  border-radius: 8px;
-  padding: 4px 4px 4px 12px;
-  height: 20px;
-  background-color: rgba(255, 255, 255, 0.05);
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  font-weight: var(--font-sb);
+  color: var(--white-color);
+  margin: 0;
+  font-family: var(--font-sans);
 }
 
-.modal-artist-track-name {
-  width: 97px;
-}
-.modal-artist-track-time {
-  width: 74px;
+.modal-artist-track-title-time,
+.modal-artist-track-title-link {
   text-align: center;
-}
-.modal-artist-track-link {
-  width: 20px;
 }
 
 .modal-artist-track-list {
@@ -333,22 +303,34 @@
   flex-direction: column;
 }
 
-.modal-artist-track-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 8px;
-  transition: all var(--transition);
-}
-
 .modal-artist-track-item:nth-child(even) {
-  background: rgba(255, 255, 255, 0.025);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
 }
 
-.modal-artist-track-link:hover {
-  opacity: 1;
-  transform: scale(1.15);
+.modal-artist-track-name {
+  font-size: 12px;
+  color: var(--white-color);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.modal-artist-track-time {
+  font-size: 12px;
+  color: var(--white-color);
+  text-align: center;
+  margin: 0;
+}
+
+.modal-artist-track-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white-color);
+  opacity: 0.5;
+  transition: all var(--transition);
 }
 
 .modal-artist-track-icon {
@@ -360,64 +342,81 @@
 /* ========== TABLET ========== */
 @media only screen and (min-width: 768px) {
   .modal-artist-wrapper {
-    max-width: 680px;
-    padding: 48px 36px 36px;
-  }
-
-  .modal-artist-header {
-    flex-direction: row;
-    gap: 28px;
-  }
-
-  .modal-artist-image {
-    width: 240px;
-    min-width: 240px;
-    aspect-ratio: 3 / 4;
-    align-self: flex-start;
-  }
-
-  .modal-artist-name {
-    font-size: 30px;
+    max-width: 720px;
+    padding: 48px;
   }
 
   .modal-artist-close-icon {
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
   }
 
-  .modal-artist-album-list {
-    grid-template-columns: repeat(2, 1fr);
+  .modal-artist-info {
+    width: 450px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    gap: 24px;
   }
 
-  .modal-artist-album-item {
-    max-width: 311px;
+  .modal-artist-header {
+    align-items: flex-start;
   }
-}
-/* ========== DESKTOP ========== */
-@media only screen and (min-width: 1440px) {
-  .modal-artist-wrapper {
-    max-width: 1312px;
-    padding: 64px;
+
+  .modal-artist-image {
+    width: 654px;
+    height: 402px;
+    min-width: 260px;
+    object-position: top;
+    /* aspect-ratio: 0.8 / 1; */
   }
 
   .modal-artist-name {
     font-size: 36px;
   }
 
+  .modal-artist-album-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+}
+
+/* ========== DESKTOP ========== */
+@media only screen and (min-width: 1200px) {
+  .modal-artist-wrapper {
+    max-width: 1312px;
+    padding: 64px;
+  }
+
+  .modal-artist-close:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(90deg);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .modal-artist-header {
+    flex-direction: row;
+  }
+
+  .modal-artist-name {
+    font-size: 48px;
+  }
+
   .modal-artist-image {
-    width: 280px;
-    min-width: 280px;
+    max-width: 576px;
+    min-width: 576px;
+    height: 354px;
+    /* aspect-ratio: 1 / 0.9; */
   }
 
   .modal-artist-album-list {
     grid-template-columns: repeat(4, 1fr);
   }
-
-  .modal-artist-close {
-    top: 18px;
-    right: 18px;
-  }
-  .modal-artist-album-item {
-    max-width: 272px;
+  .modal-artist-track-link:hover {
+    opacity: 1;
+    color: #aa0000;
+    transform: scale(1.1);
   }
 }

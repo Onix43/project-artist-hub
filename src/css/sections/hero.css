@@ -94,6 +94,7 @@
   .hero-btn:active {
     box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
     background: var(--btn-background);
+    opacity: 1;
   }
 
   .btn-hero-icon {
@@ -108,11 +109,11 @@
     overflow: hidden;
     background-image: -webkit-image-set(
       url('/hero-desktop.png') 1x,
-      url('/hero-desktop@2x.png') 2x
+      url('/hero-desktop2x.png') 2x
     );
     background-image: image-set(
       url('/hero-desktop.png') 1x,
-      url('/hero-desktop@2x.png') 2x
+      url('/hero-desktop2x.png') 2x
     );
     background-size: cover;
     background-position: top right;
