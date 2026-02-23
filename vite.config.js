@@ -3,6 +3,7 @@ import { glob } from 'glob';
 import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 export default defineConfig(({ command }) => {
   return {
@@ -15,11 +16,7 @@ export default defineConfig(({ command }) => {
       rollupOptions: {
         input: glob.sync('./src/*.html'),
         output: {
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              return 'vendor';
-            }
-          },
+          manualChunks: undefined,
           entryFileNames: chunkInfo => {
             if (chunkInfo.name === 'commonHelpers') {
               return 'commonHelpers.js';
@@ -43,6 +40,7 @@ export default defineConfig(({ command }) => {
       SortCss({
         sort: 'mobile-first',
       }),
+      cssInjectedByJsPlugin(),
     ],
   };
 });
