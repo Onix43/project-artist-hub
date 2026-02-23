@@ -1,15 +1,14 @@
 import refs from '../refs';
 
 //! Анімація кнопки
-const leaveFeedbackBtn = document.querySelector('.btn-feedback-modal');
 const startAnimationCycle = () => {
   // Функція для разового запуску анімації
   const triggerAnimation = () => {
-    leaveFeedbackBtn.classList.add('shake-bottom');
+    refs.leaveFeedbackBtn.classList.add('shake-bottom');
 
     // Анімація триває 0.8s, після чого знімаємо клас, щоб вона не "трусилася" постійно
     setTimeout(() => {
-      leaveFeedbackBtn.classList.remove('shake-bottom');
+      refs.leaveFeedbackBtn.classList.remove('shake-bottom');
     }, 800);
   };
 
