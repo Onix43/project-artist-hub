@@ -21,6 +21,10 @@
   font-weight: var(--font-sb);
   row-gap: 32px;
 }
+.footer-nav-item:focus {
+    color: var(--btn-background);
+    transition: var(--transition);
+  }
 .footer-soc-div {
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   margin-bottom: 48px;
@@ -33,6 +37,10 @@
   align-items: center;
   justify-content: center;
 }
+.footer-soc-icon:focus {
+    fill: var(--btn-background);
+    transition: var(--transition);
+  }
 .footer-copyright {
   text-align: center;
   text-wrap-mode: nowrap;
@@ -81,13 +89,11 @@
   }
 }
 @media (hover: hover) {
-  .footer-nav-item:hover,
-  .footer-nav-item:focus {
+  .footer-nav-item:hover {
     color: var(--btn-background);
     transition: var(--transition);
   }
-  .footer-soc-icon:hover,
-  .footer-soc-icon:focus {
+  .footer-soc-icon:hover {
     fill: var(--btn-background);
     transition: var(--transition);
   }
