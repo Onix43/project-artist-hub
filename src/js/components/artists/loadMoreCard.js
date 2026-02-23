@@ -25,8 +25,10 @@ export async function onLoadMoreClick() {
     if (page === totalPages) {
       startPage = 1;
       hideLoadMoreBtn();
+      listArtists.style.marginBottom = '0px';
     }
     createArtistsList(artists, page);
+    scrollDown();
   } catch (error) {
     console.log(error.message);
   } finally {
@@ -34,16 +36,27 @@ export async function onLoadMoreClick() {
   }
 }
 
-export function showLoadMoreBtn() {
+function showLoadMoreBtn() {
   if (btn.hasAttribute('hidden')) {
     btn.removeAttribute('hidden');
-    listArtists.style.marginBottom = '32px';
   }
 }
 
-export function hideLoadMoreBtn() {
+function hideLoadMoreBtn() {
   if (!btn.hasAttribute('hidden')) {
     btn.setAttribute('hidden', '');
-    listArtists.style.marginBottom = '0px';
   }
+}
+
+function scrollDown() {
+  const liEl = listArtists.firstElementChild;
+
+  if (!liEl) return;
+
+  const { height } = liEl.getBoundingClientRect();
+
+  window.scrollBy({
+    top: height,
+    behavior: 'smooth',
+  });
 }
