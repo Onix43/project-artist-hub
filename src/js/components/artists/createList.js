@@ -1,5 +1,5 @@
 import refs from '../../refs';
-import { createCard } from './createArtistCard';
+import { createCard } from './createCard';
 
 export function createArtistsList(list, page = 1) {
   const markup = list.map(createCard).join('');

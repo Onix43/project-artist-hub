@@ -1,15 +1,16 @@
 import { getArtists } from '../../api/artists-api';
 import refs from '../../refs';
 import { hideLoader, showLoader } from '../../utils/loader';
-import { createArtistsList } from './createArtistsList';
+import { createArtistsList } from './createList';
 
 const btn = refs.loadMoreArtistsBtn;
+console.log(btn);
 const listArtists = refs.listArtists;
 let startPage = 1;
 
 export async function onLoadMoreClick() {
   showLoader();
-  //   hideLoadMoreBtn();
+  hideLoadMoreBtn();
   startPage++;
   try {
     const { artists, totalArtists, limit, page } = await getArtists({
@@ -36,13 +37,13 @@ export async function onLoadMoreClick() {
 export function showLoadMoreBtn() {
   if (btn.hasAttribute('hidden')) {
     btn.removeAttribute('hidden');
-    listArtists.style.marginBottom = 32;
+    listArtists.style.marginBottom = '32px';
   }
 }
 
 export function hideLoadMoreBtn() {
   if (!btn.hasAttribute('hidden')) {
-    btn.addAttribute('hidden');
-    listArtists.style.marginBottom = 0;
+    btn.setAttribute('hidden', '');
+    listArtists.style.marginBottom = '0px';
   }
 }
