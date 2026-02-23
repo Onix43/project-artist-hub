@@ -45,8 +45,11 @@
   .mobile-footer-logo {
     display: none;
   }
+  .footer-logo-link {
+    padding-top: 10px;
+  }
   .footer-nav-div {
-    margin-bottom: 80px;
+    margin: 80px 0;
   }
   .footer-nav-list {
     display: flex;
@@ -78,11 +81,13 @@
   }
 }
 @media (hover: hover) {
-  .footer-nav-item:hover {
+  .footer-nav-item:hover,
+  .footer-nav-item:focus {
     color: var(--btn-background);
     transition: var(--transition);
   }
-  .footer-soc-icon:hover {
+  .footer-soc-icon:hover,
+  .footer-soc-icon:focus {
     fill: var(--btn-background);
     transition: var(--transition);
   }
