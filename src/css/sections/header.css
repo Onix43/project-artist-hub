@@ -1,6 +1,7 @@
 /* Чтобы при переходе по якорям хедер не перекрывал секции */
 html {
-  scroll-padding-top: 64px; /* mobile */
+  scroll-padding-top: 64px;
+  scroll-behavior: smooth;
 }
 
 /* Отступ для контента под фиксированный хедер */
@@ -18,15 +19,15 @@ main {
 }
 
 .header-container {
-      max-width: 1440px;
   height: 64px;
   display: flex;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   position: relative;
   z-index: 992;
-  padding: 0 16px;
-      margin: 0px auto;
+  padding: 0px 12px 0px 20px;
+  margin: 0px auto;
 }
 
 /* logo */
@@ -47,12 +48,13 @@ main {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
   background: transparent;
   border: none;
   padding: 0;
   cursor: pointer;
   z-index: 1100;
-  padding-right: 24px;
 }
 
 /* icon */
@@ -66,7 +68,6 @@ main {
     transform 350ms cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
-
 .burger-icon {
   opacity: 1;
   transform: rotate(0deg) scale(1);
@@ -76,7 +77,6 @@ main {
   opacity: 0;
   transform: rotate(-90deg) scale(0.6);
 }
-
 
 .burger.is-open .burger-icon {
   opacity: 0;
@@ -180,16 +180,15 @@ body.is-menu-open {
     flex-direction: row;
     justify-content: flex-end;
     padding-top: 0;
-
   }
   .nav-list {
     flex-direction: row;
     gap: 32px;
-
   }
 
   .nav-list a {
     font-size: 18px;
+    font-weight: 400;
   }
 }
 
