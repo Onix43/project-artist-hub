@@ -11,4 +11,7 @@ export default {
   menu: document.querySelector('[data-menu]'),
   toggleBtn: document.querySelector('[data-menu-toggle]'),
   navLinks: document.querySelectorAll('.nav-list a'),
+  // scroll-up
+
+    scrollUpBtn: document.querySelector('.js-scroll-up'),
 };

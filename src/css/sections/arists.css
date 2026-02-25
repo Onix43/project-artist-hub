@@ -226,3 +226,60 @@
   }
 }
 /* #endregion */
+
+/*! Empty  artist field
+/* #region /Empty Artiset field */
+.empty-artists {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 16px;
+  padding: 16px;
+  background: #23132b;
+
+    @media (min-width: 768px) {
+        width: 704px;
+        padding: 32px;
+      }
+    @media (min-width: 1440px) {
+          width: 976px;
+        }
+}
+.empty-artists-icon{
+  fill: var(--white-color);
+}
+.empty-artists-title {
+  font-family: "Epilogue", sans-serif;
+  font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--white-color);
+    
+    @media (min-width: 768px) {
+        font-size: 48px;
+      }
+}
+
+.empty-artists-descr {
+  font-weight: 400;
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--white-color);
+}
+
+.empty-artists-btn {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.5;
+  width: 256px;
+  border: none;
+  color: var(--white-color);
+
+  @media (min-width: 768px) {
+      width: 148px;
+    }
+}
+/* #endregion */

@@ -7,7 +7,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   z-index: 1000;
@@ -85,11 +85,10 @@
   position: absolute;
   top: 11px;
   right: 11px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  background: transparent;
+  border: none;
   cursor: pointer;
-  padding: 10px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +100,12 @@
   width: 14px;
   height: 14px;
   fill: var(--white-color);
-  opacity: 0.8;
+  opacity: 0.5;
+  transition: opacity var(--transition);
+}
+
+.modal-artist-close:hover .modal-artist-close-icon {
+  opacity: 1;
 }
 
 /* Loader */
@@ -391,9 +395,7 @@
   }
 
   .modal-artist-close:hover {
-    background: rgba(255, 255, 255, 0.15);
     transform: rotate(90deg);
-    border-color: rgba(255, 255, 255, 0.2);
   }
 
   .modal-artist-header {

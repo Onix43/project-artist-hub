@@ -1,0 +1,113 @@
+
+.scroll-up {
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
+  z-index: 99;
+
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+
+  color: rgba(255, 255, 255, 0.9);
+  cursor: pointer;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  /* mobile tap / focus */
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+  -webkit-user-select: none;
+  outline: none;
+
+  /* hidden*/
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(10px);
+  transform: translateY(16px) scale(0.95);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.scroll-up:focus {
+  outline: none;
+}
+
+.scroll-up.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  filter: blur(0);
+  transform: translateY(0) scale(1);
+  animation: floatY 2.6s ease-in-out infinite;
+}
+
+@keyframes floatY {
+  50% { transform: translateY(-4px); }
+}
+
+/* hover-focus */
+@media (hover: hover) and (pointer: fine) {
+  .scroll-up:hover,
+  .scroll-up:focus-visible {
+    border-color: rgba(139, 92, 246, 0.4);
+    box-shadow:
+      0 10px 28px rgba(0, 0, 0, 0.35),
+      0 0 0 6px rgba(139, 92, 246, 0.08);
+    animation-play-state: paused;
+    transform: translateY(-6px) scale(1.03);
+  }
+
+  .scroll-up:hover .scroll-up-icon,
+  .scroll-up:focus-visible .scroll-up-icon {
+    transform: translateY(-3px);
+  }
+}
+
+/* touch active */
+@media (hover: none) and (pointer: coarse) {
+  .scroll-up:active {
+    border-color: rgba(139, 92, 246, 0.25);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
+    transform: translateY(-2px) scale(0.98);
+  }
+}
+
+/* icon */
+.scroll-up-icon {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.6;
+  transition: transform 0.3s ease;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .scroll-up {
+    width: 40px;
+    height: 40px;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 12px;
+  }
+
+  .scroll-up-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+
