@@ -1,0 +1,149 @@
+.feedback-modal:modal {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  max-width: none;
+  max-height: none;
+  border: none;
+  border-radius: 0;
+  color: var(--white-color);
+  background-color: var(--main-color);
+  animation: fadein var(--transition);
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.feedback-modal > .container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 16px 16px 0;
+  transition: var(--transition);
+}
+.feedback-close-btn {
+  border: none;
+  background-color: transparent;
+  margin-left: auto;
+}
+.feedback-modal-title {
+  margin: 0 auto;
+  font-weight: var(--font-b);
+  font-size: 24px;
+  line-height: 120%;
+}
+.feedback-form {
+  margin-bottom: 32px;
+}
+.feedback-name-inp,
+.feedback-msg-inp {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: transparent;
+  border-radius: 12px;
+  color: var(--white-color);
+  padding-left: 12px;
+  margin: 8px 0 32px;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 43px;
+}
+.feedback-rating {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  gap: 6px;
+  margin-bottom: 32px;
+}
+.feedback-star-label > input {
+  display: none;
+}
+.feedback-modal-star {
+  fill: var(--white-color);
+  cursor: pointer;
+}
+input[type='radio']:checked + .feedback-modal-star,
+input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
+  fill: var(--btn-background);
+}
+.feedback-rating
+  .feedback-star-label:has(input[type='radio']:checked):hover
+  .feedback-modal-star,
+.feedback-rating
+  .feedback-star-label:has(input[type='radio']:checked)
+  ~ label
+  .feedback-modal-star {
+  fill: var(--btn-background);
+}
+.feedback-submit-btn {
+  border: none;
+  color: var(--white-color);
+}
+.feedback-error {
+  color: #af0404;
+  border-color: #af0404;
+}
+.feedback-error-txt-name,
+.feedback-error-txt-msg {
+  color: #af0404;
+  position: absolute;
+  margin-top: -25px;
+  font-size: 12px;
+  display: none;
+}
+.is-open {
+  display: block;
+}
+@media (hover: hover) {
+  .feedback-submit-btn:hover {
+    opacity: 0.6;
+    transition: var(--transition);
+  }
+}
+@media only screen and (min-width: 768px) {
+  .feedback-modal:modal {
+    margin: auto;
+    width: 704px;
+    height: 688px;
+    border-radius: 16px;
+  }
+  .feedback-modal > .container {
+    padding: 16px 16px;
+  }
+  .feedback-modal::backdrop {
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.01);
+  }
+  .feedback-modal-title {
+    margin-bottom: 48px;
+    font-size: 44px;
+  }
+  .feedback-name-inp,
+  .feedback-msg-inp {
+    margin-bottom: 24px;
+  }
+  .feedback-rating {
+    margin-bottom: 24px;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .feedback-modal:modal {
+    width: 864px;
+  }
+  .feedback-modal > .container {
+    padding: 16px 64px;
+  }
+  .feedback-modal-title {
+    font-size: 60px;
+  }
+  .feedback-submit-btn {
+    max-width: 108px;
+    margin: 0 auto;
+  }
+  .feedback-submit-btn:focus {
+    opacity: 1;
+  }
+}
