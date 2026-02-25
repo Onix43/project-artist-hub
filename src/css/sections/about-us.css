@@ -1,6 +1,10 @@
+.about-us {
+  padding: 64px 0;
+}
+
 .about-us .container {
   margin: 0 auto;
-  padding: 64px 16px;
+  padding: 0 16px;
 }
 .about-img {
   width: 100%;
@@ -34,7 +38,7 @@
 }
 @media only screen and (min-width: 768px) {
   .about-us .container {
-    padding: 64px 32px;
+    padding: 0 32px;
   }
   .about-img {
     height: 413px;
@@ -56,8 +60,11 @@
   }
 }
 @media only screen and (min-width: 1440px) {
+  .about-us {
+    padding: 112px;
+  }
   .about-us .container {
-    padding: 112px 64px;
+    padding: 0 64px;
     display: flex;
     gap: 32px;
   }

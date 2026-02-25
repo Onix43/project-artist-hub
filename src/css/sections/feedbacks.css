@@ -1,16 +1,19 @@
-.feedbacks .container {
-  margin: 0 auto;
+.feedbacks {
   padding-top: 64px;
   padding-bottom: 64px;
-   
+
   @media (min-width: 1400px) {
-        padding-top: 112px;
-        padding-bottom: 112px;
-    }
+    padding-top: 112px;
+    padding-bottom: 112px;
+  }
 }
 
-.feedback-title-hide{
-    display: none;
+.feedbacks .container {
+  margin: 0 auto;
+}
+
+.feedback-title-hide {
+  display: none;
 }
 
 .swiper {
@@ -21,11 +24,6 @@
   @media (min-width: 1400px) {
     margin-bottom: 80px;
   }
-}
-.swiper-wrapper {
-}
-
-.swiper-slide {
 }
 
 .wrapper {
@@ -69,7 +67,6 @@
   line-height: 1.5;
   color: var(--white-color);
 }
-
 
 .swiper-button-prev,
 .swiper-button-next {
@@ -138,8 +135,9 @@
   background-color: var(--white-color);
   /* Цвет пустой звезды */
   /* Рисуем форму звезды через маску (работает во всех браузерах) */
-  clip-path: path("M9.07088 0.612343C9.41462 -0.204115 10.5854 -0.204114 10.9291 0.612346L12.9579 5.43123C13.1029 5.77543 13.4306 6.01061 13.8067 6.0404L19.0727 6.45748C19.9649 6.52814 20.3267 7.62813 19.6469 8.2034L15.6348 11.5987C15.3482 11.8412 15.223 12.2218 15.3106 12.5843L16.5363 17.661C16.744 18.5211 15.7969 19.201 15.033 18.7401L10.5245 16.0196C10.2025 15.8252 9.7975 15.8252 9.47548 16.0196L4.96699 18.7401C4.20311 19.201 3.25596 18.5211 3.46363 17.661L4.68942 12.5843C4.77698 12.2218 4.65182 11.8412 4.36526 11.5987L0.353062 8.2034C-0.326718 7.62813 0.0350679 6.52814 0.927291 6.45748L6.19336 6.0404C6.5695 6.01061 6.89716 5.77543 7.04207 5.43123L9.07088 0.612343Z");
-  
+  clip-path: path(
+    'M9.07088 0.612343C9.41462 -0.204115 10.5854 -0.204114 10.9291 0.612346L12.9579 5.43123C13.1029 5.77543 13.4306 6.01061 13.8067 6.0404L19.0727 6.45748C19.9649 6.52814 20.3267 7.62813 19.6469 8.2034L15.6348 11.5987C15.3482 11.8412 15.223 12.2218 15.3106 12.5843L16.5363 17.661C16.744 18.5211 15.7969 19.201 15.033 18.7401L10.5245 16.0196C10.2025 15.8252 9.7975 15.8252 9.47548 16.0196L4.96699 18.7401C4.20311 19.201 3.25596 18.5211 3.46363 17.661L4.68942 12.5843C4.77698 12.2218 4.65182 11.8412 4.36526 11.5987L0.353062 8.2034C-0.326718 7.62813 0.0350679 6.52814 0.927291 6.45748L6.19336 6.0404C6.5695 6.01061 6.89716 5.77543 7.04207 5.43123L9.07088 0.612343Z'
+  );
 }
 
 .star::after {
@@ -193,12 +191,12 @@
   border: none;
   background: var(--btn-background);
   transition: var(--transition);
-  box-shadow: 
-  0 1px 2px 0 rgba(6, 3, 7, 0.05), 
-  inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2), 
-  inset 0 0 0 1px rgba(6, 3, 7, 0.15), 
-  inset 0 2px 1px 0 rgba(255, 255, 255, 0.25), 
-  inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
+  box-shadow:
+    0 1px 2px 0 rgba(6, 3, 7, 0.05),
+    inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(6, 3, 7, 0.15),
+    inset 0 2px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 32px 24px 0 rgba(255, 255, 255, 0.05);
 
   color: var(--white-color);
   font-weight: 500;
@@ -208,31 +206,29 @@
   @media (min-width: 768px) {
     width: 158px;
     font-size: 18px;
-      padding: 10px 14px;
+    padding: 10px 14px;
   }
   @media (min-width: 1440px) {
     width: 177px;
     font-size: 18px;
-      padding: 10px 24px;
-  
+    padding: 10px 24px;
   }
   &:hover {
     opacity: 0.6;
   }
-  &:active{
+  &:active {
     opacity: 1;
     box-shadow: 0 1px 2px 0 rgba(6, 3, 7, 0.05);
   }
 
-/* анiмація кнопки*/
-
+  /* анiмація кнопки*/
 }
 .shake-bottom {
-  -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955) infinite;
-  animation: shake-bottom 0.8s cubic-bezier(0.455, 0.030, 0.515, 0.955)  infinite;
+  -webkit-animation: shake-bottom 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    infinite;
+  animation: shake-bottom 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
 @-webkit-keyframes shake-bottom {
-
   0%,
   100% {
     -webkit-transform: rotate(0deg);
@@ -272,7 +268,6 @@
 }
 
 @keyframes shake-bottom {
-
   0%,
   100% {
     -webkit-transform: rotate(0deg);
