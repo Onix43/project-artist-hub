@@ -19,7 +19,7 @@
     <!-- logo -->
     <a href="./index.html" class="logo" aria-label="Go to homepage">
       <svg class="logo-icon" width="106" height="30" aria-hidden="true">
-        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#main-logo"></use>
+        <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#main-logo"></use>
       </svg>
     </a>
 
@@ -34,12 +34,12 @@
     >
       <!-- burger icon -->
       <svg class="burger-icon" width="24" height="24" aria-hidden="true">
-        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#burger-menu"></use>
+        <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#burger-menu"></use>
       </svg>
 
       <!-- close icon -->
       <svg class="close-icon" width="12" height="12" aria-hidden="true">
-        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#close-button"></use>
+        <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#close-button"></use>
       </svg>
     </button>
 
@@ -73,7 +73,7 @@
       <a href="#artists" class="hero-btn" aria-label="Explore artists">
         Explore Artists
         <svg class="btn-hero-icon" width="15" height="20">
-          <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#hero-button"></use>
+          <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#hero-button"></use>
         </svg>
       </a>
     </div>
@@ -92,7 +92,7 @@
       <button class="js-load-more-btn btn-primary load-more-btn" type="button">
         Load More<span>
           <svg width="12" height="12">
-            <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#arrow-down"></use>
+            <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#arrow-down"></use>
           </svg>
         </span>
       </button>
@@ -114,7 +114,7 @@
 
     <div class="about-right">
       <svg class="about-icon" fill="#fff">
-        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#about-logo"></use>
+        <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#about-logo"></use>
       </svg>
       <h2 class="about-header">About ArtistsHub</h2>
       <p class="about-text">
@@ -288,7 +288,7 @@
     <div class="footer-nav-div">
       <a href="./index.html" class="footer-logo-link"
         ><svg class="footer-logo" fill="#764191" width="116px" height="45px">
-          <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#main-logo"></use>
+          <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#main-logo"></use>
         </svg>
         <svg
           class="mobile-footer-logo"
@@ -296,7 +296,7 @@
           width="84px"
           height="36px"
         >
-          <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#mobile-logo"></use>
+          <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#mobile-logo"></use>
         </svg>
       </a>
       <ul class="footer-nav-list">
@@ -325,7 +325,7 @@
               height="40px"
               class="footer-soc-icon"
             >
-              <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#instagram"></use>
+              <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#instagram"></use>
             </svg>
           </a>
         </li>
@@ -341,7 +341,7 @@
               height="40px"
               class="footer-soc-icon"
             >
-              <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#facebook"></use>
+              <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#facebook"></use>
             </svg>
           </a>
         </li>
@@ -357,7 +357,7 @@
               height="40px"
               class="footer-soc-icon"
             >
-              <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#youtube"></use>
+              <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#youtube"></use>
             </svg>
           </a>
         </li>
@@ -372,7 +372,7 @@
     <!-- Close button -->
     <button class="modal-artist-close" type="button" aria-label="Close modal">
       <svg class="modal-artist-close-icon" width="24" height="24">
-        <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#close-button"></use>
+        <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#close-button"></use>
       </svg>
     </button>
 
@@ -388,9 +388,81 @@
   </div>
 </div>
 
+    <dialog class="feedback-modal">
+  <div class="container">
+    <button type="button" class="feedback-close-btn">
+      <svg fill="#fff" width="14" height="14">
+        <use
+          class="feedback-svg"
+          href="../assets/icons/symbol-defs.svg#close-button"
+        ></use>
+      </svg>
+    </button>
+    <h3 class="feedback-modal-title">Submit feedback</h3>
+    <form class="feedback-form">
+      <label for="feedback-name">Name</label>
+      <input
+        type="text"
+        name="feedback-name"
+        id="feedback-name-inp"
+        placeholder="Emily"
+        class="feedback-name-inp"
+      />
+      <p class="feedback-error-txt-name">Text error</p>
+      <label for="feedback-msg">Message</label>
+      <textarea
+        type="text"
+        name="feedback-msg"
+        id="feedback-msg-inp"
+        placeholder="Type your message..."
+        class="feedback-msg-inp"
+        rows="5"
+      ></textarea>
+      <p class="feedback-error-txt-msg">Text error</p>
+      <div class="feedback-rating">
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="5" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="4" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="3" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="2" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="1" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+      </div>
+
+      <button class="feedback-submit-btn btn-primary" type="submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</dialog>
+
+
     <button class="scroll-up js-scroll-up" type="button" aria-label="Scroll to top">
   <svg class="scroll-up-icon" width="24" height="24" aria-hidden="true">
-    <use href="/project-artist-hub/assets/symbol-defs-0ZSth0dU.svg#arrow-up"></use>
+    <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#arrow-up"></use>
   </svg>
 </button>
 
