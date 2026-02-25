@@ -1,0 +1,70 @@
+<dialog class="feedback-modal">
+  <div class="container">
+    <button type="button" class="feedback-close-btn">
+      <svg fill="#fff" width="14" height="14">
+        <use
+          class="feedback-svg"
+          href="../assets/icons/symbol-defs.svg#close-button"
+        ></use>
+      </svg>
+    </button>
+    <h3 class="feedback-modal-title">Submit feedback</h3>
+    <form class="feedback-form">
+      <label for="feedback-name">Name</label>
+      <input
+        type="text"
+        name="feedback-name"
+        id="feedback-name-inp"
+        placeholder="Emily"
+        class="feedback-name-inp"
+      />
+      <p class="feedback-error-txt-name">Text error</p>
+      <label for="feedback-msg">Message</label>
+      <textarea
+        type="text"
+        name="feedback-msg"
+        id="feedback-msg-inp"
+        placeholder="Type your message..."
+        class="feedback-msg-inp"
+        rows="5"
+      ></textarea>
+      <p class="feedback-error-txt-msg">Text error</p>
+      <div class="feedback-rating">
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="5" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="4" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="3" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="2" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+        <label class="feedback-star-label">
+          <input type="radio" name="star-rating" value="1" />
+          <svg class="feedback-modal-star" width="31" height="29">
+            <use href="../assets/icons/symbol-defs.svg#star-rating" />
+          </svg>
+        </label>
+      </div>
+
+      <button class="feedback-submit-btn btn-primary" type="submit">
+        Submit
+      </button>
+    </form>
+  </div>
+</dialog>
