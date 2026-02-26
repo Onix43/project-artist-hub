@@ -8,6 +8,7 @@ import refs from '../../refs.js';
 import { createArtistsList } from './createList.js';
 import { createPagination } from './pagination.js';
 import { searchState } from '../../utils/variables.js';
+import { hideLoader, showLoader } from '../../utils/loader.js';
 
 const sorting = document.querySelector('.js-filters-select-sorting');
 const genre = document.querySelector('.js-filters-select-genre');
@@ -55,6 +56,9 @@ export function createFilters(genres) {
 }
 
 async function sortingArtists(value) {
+  showLoader();
+  container.innerHTML = '';
+
   try {
     refs.listArtists.innerHTML = '';
     const { artists, totalArtists, limit, page } = await getArtists(value);
@@ -77,6 +81,8 @@ async function sortingArtists(value) {
       '.js-empty-artists-btn'
     );
     resetBtnInEmptyList.addEventListener('click', onResetFilters);
+  } finally {
+    hideLoader();
   }
 }
 

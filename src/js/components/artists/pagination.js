@@ -80,5 +80,14 @@ export function createPagination(totalArtists, limit, page) {
 
     refs.listArtists.innerHTML = '';
     createArtistsList(artists, page);
+    scrollTo(refs.listArtists);
+  });
+}
+
+function scrollTo(el) {
+  console.log('here');
+  el.scrollIntoView({
+    block: 'start',
+    behavior: 'smooth',
   });
 }

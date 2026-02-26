@@ -7,16 +7,18 @@ import { getGenres } from '../api/genres-api';
 import { hideLoader, showLoader } from '../utils/loader';
 
 export async function renderArtistsList() {
+  showLoader();
   try {
     const { artists, totalArtists, limit, page } = await getArtists();
     const genres = await getGenres();
-    showLoader();
+
     createArtistsList(artists, page);
     createFilters(genres);
     createPagination(totalArtists, limit, page);
-    hideLoader();
   } catch (error) {
     console.log(error.message);
+  } finally {
+    hideLoader();
   }
 }
 

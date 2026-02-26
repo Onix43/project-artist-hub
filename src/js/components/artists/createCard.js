@@ -24,7 +24,7 @@ export function createCard(artist) {
               : `<li class="tags-list-item">No ganres provided</li>`
           }
         </ul>
-        <h3 class="list-item-title">${strArtist}</h3>
+        <h4 class="list-item-title">${strArtist}</h4>
         <p class="list-item-descr">
           ${(strBiographyEN ?? emptyDescr) || strBiographyEN || emptyDescr}
         </p>
