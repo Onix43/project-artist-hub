@@ -128,4 +128,14 @@ function delErrorStyle(event) {
     feedbackErrorTxtMsg.classList.remove('is-open');
   }
 }
-// rows="6"
+// textarea rows resize
+
+window.addEventListener('resize', rowsResize);
+
+function rowsResize() {
+  if (window.innerWidth >= 768) {
+    feedbackInpMsg.rows = 6;
+  } else {
+    feedbackInpMsg.rows = 4;
+  }
+}
