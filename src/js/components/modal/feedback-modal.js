@@ -1,5 +1,6 @@
 import { postFeedback } from '../../api/feedback-api';
 import { showLoader, hideLoader } from '../../utils/loader.js';
+import { showErrorToast, showSuccessToast } from '../toaster/toaster.js';
 
 //
 
@@ -11,6 +12,7 @@ const feedbackInpName = document.querySelector('.feedback-name-inp');
 const feedbackInpMsg = document.querySelector('.feedback-msg-inp');
 const feedbackErrorTxtName = document.querySelector('.feedback-error-txt-name');
 const feedbackErrorTxtMsg = document.querySelector('.feedback-error-txt-msg');
+const ratingMsg = document.querySelector('.feedback-error-rating-msg');
 
 // form
 
@@ -24,41 +26,43 @@ feedbackForm.addEventListener('submit', async event => {
   const feedbackMsg = feedbackData.get('feedback-msg').trim();
 
   if (!feedbackName && !feedbackMsg) {
-    alert('All fields must to be filled');
     feedbackInpName.classList.add('feedback-error');
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
     feedbackErrorTxtMsg.classList.add('is-open');
+    setTimeout(() => {
+      ratingMsg.classList.remove('is-open');
+    }, 3000);
+    ratingMsg.classList.add('is-open');
     return;
   }
   if (!feedbackName) {
-    alert('Enter your name');
     feedbackInpName.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
     return;
   }
 
   if (feedbackName.length < 2 || feedbackName.length > 16) {
-    alert("Your name can't be this size");
     feedbackInpName.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
     return;
   }
 
   if (!feedbackRating) {
-    alert("Enter you'r rating");
+    setTimeout(() => {
+      ratingMsg.classList.remove('is-open');
+    }, 3000);
+    ratingMsg.classList.add('is-open');
     return;
   }
 
   if (!feedbackMsg) {
-    alert('Enter your message');
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
     return;
   }
 
   if (feedbackMsg.length < 10 || feedbackMsg.length > 512) {
-    alert("Your message can't be this size");
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
     return;
@@ -75,8 +79,9 @@ feedbackForm.addEventListener('submit', async event => {
 
     feedbackForm.reset();
     closeModal();
+    showSuccessToast();
   } catch (error) {
-    console.log('404 SOS:', error);
+    showErrorToast(error.message);
   } finally {
     hideLoader();
   }
