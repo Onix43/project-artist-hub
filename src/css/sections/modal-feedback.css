@@ -40,6 +40,7 @@
   font-size: 24px;
   line-height: 120%;
   letter-spacing: -0.01em;
+  font-family: var(--font-epilogue);
 }
 .feedback-form {
   margin-bottom: 32px;
