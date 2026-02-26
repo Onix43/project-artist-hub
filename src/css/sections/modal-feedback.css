@@ -1,8 +1,7 @@
 .feedback-modal:modal {
-  margin: 0;
   padding: 0;
   width: 100vw;
-  height: 100vh;
+  height: 568px;
   max-width: none;
   max-height: none;
   border: none;
@@ -19,13 +18,17 @@
     opacity: 1;
   }
 }
+.feedback-modal::backdrop {
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.02);
+}
 .feedback-modal > .container {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
   padding: 16px 16px 0;
   transition: var(--transition);
-  height: 100vh;
+  height: 568px;
 }
 .feedback-close-btn {
   border: none;
@@ -40,6 +43,7 @@
   font-size: 24px;
   line-height: 120%;
   letter-spacing: -0.01em;
+  font-family: var(--font-epilogue);
 }
 .feedback-form {
   margin-bottom: 32px;
@@ -124,10 +128,6 @@ input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
     width: 704px;
     height: 688px;
     border-radius: 16px;
-  }
-  .feedback-modal::backdrop {
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.01);
   }
   .feedback-modal-title {
     margin-bottom: 48px;
