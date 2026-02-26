@@ -85,7 +85,6 @@ export function createPagination(totalArtists, limit, page) {
 }
 
 function scrollTo(el) {
-  console.log('here');
   el.scrollIntoView({
     block: 'start',
     behavior: 'smooth',

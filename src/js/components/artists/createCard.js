@@ -1,6 +1,6 @@
 import sprite from '../../../assets/icons/symbol-defs.svg';
 
-const emptyImg = '../../../public/empty-img.webp';
+const emptyImg = '/empty-img.webp';
 const emptyDescr =
   'Description empty<br/> Please add description on backend!!!!';
 
