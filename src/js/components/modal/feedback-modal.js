@@ -64,8 +64,6 @@ feedbackForm.addEventListener('submit', async event => {
       rating: Number(feedbackRating),
       descr: feedbackMsg,
     });
-    console.log(feedback, feedbackData);
-
     feedbackForm.reset();
     closeModal();
     showSuccessToast();
