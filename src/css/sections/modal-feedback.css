@@ -1,11 +1,11 @@
 .feedback-modal:modal {
   padding: 0;
-  width: 100vw;
+  width: 320px;
   height: 568px;
   max-width: none;
   max-height: none;
   border: none;
-  border-radius: 0;
+  border-radius: 16px;
   color: var(--white-color);
   background-color: var(--main-color);
   animation: fadein var(--transition);
@@ -19,21 +19,19 @@
   }
 }
 .feedback-modal::backdrop {
-  z-index: 10;
   backdrop-filter: blur(5px);
   background-color: rgba(255, 255, 255, 0.02);
 }
 .feedback-modal > .container {
   display: flex;
   flex-direction: column;
+  border-radius: 16px;
   margin: 0 auto;
-  padding: 64px 16px;
+  padding: 16px 16px 0;
   transition: var(--transition);
+  height: 568px;
 }
 .feedback-close-btn {
-  position: absolute;
-  top: 16px;
-  right: 16px;
   border: none;
   background-color: transparent;
   margin-left: auto;
@@ -48,9 +46,9 @@
   letter-spacing: -0.01em;
   font-family: var(--font-epilogue);
 }
-/* .feedback-form {
+.feedback-form {
   margin-bottom: 32px;
-} */
+}
 .feedback-name-inp,
 .feedback-msg-inp {
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -67,7 +65,6 @@
   padding: 12px 12px 10px;
   resize: none;
 }
-
 .feedback-rating {
   display: inline-flex;
   flex-direction: row-reverse;
@@ -143,7 +140,6 @@ input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
     width: 704px;
     height: 688px;
     border-radius: 16px;
-    padding: 64px 32px;
   }
   .feedback-modal-title {
     margin-bottom: 48px;
@@ -169,7 +165,7 @@ input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
     width: 864px;
   }
   .feedback-modal > .container {
-    padding: 64px;
+    padding: 16px 16px;
     width: 864px;
   }
   .feedback-modal-title {
