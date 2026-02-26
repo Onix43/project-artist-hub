@@ -24,7 +24,7 @@ feedbackForm.addEventListener('submit', async event => {
   const feedbackMsg = feedbackData.get('feedback-msg').trim();
 
   if (!feedbackName && !feedbackMsg) {
-    alert('Fields must to be filled');
+    alert('All fields must to be filled');
     feedbackInpName.classList.add('feedback-error');
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
@@ -32,14 +32,14 @@ feedbackForm.addEventListener('submit', async event => {
     return;
   }
   if (!feedbackName) {
-    alert("Enter you'r name");
+    alert('Enter your name');
     feedbackInpName.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
     return;
   }
 
   if (feedbackName.length < 2 || feedbackName.length > 16) {
-    alert("You're name can't be this long");
+    alert("Your name can't be this size");
     feedbackInpName.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
     return;
@@ -51,14 +51,14 @@ feedbackForm.addEventListener('submit', async event => {
   }
 
   if (!feedbackMsg) {
-    alert("Enter you'r message");
+    alert('Enter your message');
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
     return;
   }
 
   if (feedbackMsg.length < 10 || feedbackMsg.length > 512) {
-    alert("You're message can't be this long");
+    alert("Your message can't be this size");
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
     return;
