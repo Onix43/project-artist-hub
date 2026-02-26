@@ -1,15 +1,20 @@
 import { getArtists } from '../api/artists-api';
 import { createArtistsList } from '../components/artists/createList';
-import { createFilterError } from '../components/artists/createFilterError';
-import { onLoadMoreClick } from '../components/artists/loadMoreCard';
-import refs from '../refs';
+import { createPagination } from '../components/artists/pagination';
+import '../components/artists/filters';
+import { createFilters } from '../components/artists/filters';
+import { getGenres } from '../api/genres-api';
+import { hideLoader, showLoader } from '../utils/loader';
 
-refs.loadMoreArtistsBtn.addEventListener('click', onLoadMoreClick);
-
-async function renderArtistsList() {
+export async function renderArtistsList() {
   try {
-    const { artists, page } = await getArtists();
+    const { artists, totalArtists, limit, page } = await getArtists();
+    const genres = await getGenres();
+    showLoader();
     createArtistsList(artists, page);
+    createFilters(genres);
+    createPagination(totalArtists, limit, page);
+    hideLoader();
   } catch (error) {
     console.log(error.message);
   }
