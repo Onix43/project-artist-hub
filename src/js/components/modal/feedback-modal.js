@@ -27,35 +27,26 @@ feedbackForm.addEventListener('submit', async event => {
   const feedbackRating = feedbackData.get('star-rating');
   const feedbackMsg = feedbackData.get('feedback-msg').trim();
 
-  if (!feedbackName && !feedbackMsg) {
-    feedbackInpName.classList.add('feedback-error');
-    feedbackInpMsg.classList.add('feedback-error');
-    feedbackErrorTxtName.classList.add('is-open');
-    feedbackErrorTxtMsg.classList.add('is-open');
-  }
-  if (!feedbackName) {
-    feedbackInpName.classList.add('feedback-error');
-    feedbackErrorTxtName.classList.add('is-open');
-  }
+  let hasError = false;
 
   if (feedbackName.length < 2 || feedbackName.length > 16) {
     feedbackInpName.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
+    hasError = true;
   }
 
   if (!feedbackRating) {
     feedbackRatingError.classList.add('is-open');
-  }
-
-  if (!feedbackMsg) {
-    feedbackInpMsg.classList.add('feedback-error');
-    feedbackErrorTxtMsg.classList.add('is-open');
+    hasError = true;
   }
 
   if (feedbackMsg.length < 10 || feedbackMsg.length > 512) {
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
+    hasError = true;
   }
+
+  if (hasError) return;
 
   try {
     const feedback = await postFeedback({
