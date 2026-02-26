@@ -1,7 +1,7 @@
 <section class="feedbacks" id="feedbacks">
   <div class="container">
     <h2 class="feedback-title-hide">Feedbacks our visitors</h2>
-    <div class="swiper">
+    <div class="swiper feedback-swiper">
       <ul class="swiper-wrapper js-list-feedbacks">
         <!-- Slides -->
         <!-- <li class="swiper-slide">
@@ -118,7 +118,26 @@
         </li> -->
       </ul>
       <!-- pagination -->
-      <div class="swiper-pagination"></div>
+      <div
+        class="swiper-pagination custom-pagination"
+        aria-label="Slider pagination"
+      >
+        <button
+          type="button"
+          class="custom-bullet bullet-first"
+          aria-label="Go to first slide"
+        ></button>
+        <button
+          type="button"
+          class="custom-bullet bullet-middle"
+          aria-label="Go to middle slides"
+        ></button>
+        <button
+          type="button"
+          class="custom-bullet bullet-last"
+          aria-label="Go to last slide"
+        ></button>
+      </div>
 
       <!--  navigation BTN  -->
       <div class="swiper-button-prev">
