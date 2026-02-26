@@ -1,6 +1,5 @@
 import { postFeedback } from '../../api/feedback-api';
-import { showLoader, hideLoader } from '../../utils/loader.js';
-import { showErrorToast, showSuccessToast } from '../toaster/toaster.js';
+import { showSuccessToast } from '../toaster/toaster.js';
 
 //
 
@@ -57,7 +56,7 @@ feedbackForm.addEventListener('submit', async event => {
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
   }
-  showLoader();
+  feedbackModal.style.display = 'none';
 
   try {
     const feedback = await postFeedback({
@@ -71,9 +70,9 @@ feedbackForm.addEventListener('submit', async event => {
     closeModal();
     showSuccessToast();
   } catch (error) {
-    showErrorToast(error.message);
+    alert("404 can't receive answer from the server");
   } finally {
-    hideLoader();
+    feedbackModal.style.display = '';
   }
 });
 
