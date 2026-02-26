@@ -11,7 +11,7 @@ export function createFilterError() {
                 Looks like no artists match your filters. <br />Try changing them or
                 hit “Reset Filters” to bring back the beat.
             </p>
-            <button class="empty-artists-btn btn-primary" type="button">
+            <button class="js-empty-artists-btn empty-artists-btn btn-primary" type="button">
                 Reset filters
             </button>
         </div>

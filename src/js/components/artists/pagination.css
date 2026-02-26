@@ -1,0 +1,84 @@
+.tui-pagination {
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  max-width: 345px;
+}
+
+.tui-pagination .tui-first {
+  display: none !important;
+}
+
+.tui-pagination .tui-last {
+  display: none !important;
+}
+.tui-pagination .tui-prev,
+.tui-pagination .tui-next,
+.tui-pagination .tui-page-btn {
+  pointer-events: all;
+  border: none;
+  color: #fff;
+  width: 41px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  margin: 0;
+
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+}
+@media only screen and (min-width: 768px) {
+  .tui-pagination .tui-page-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+/* Styles for Desktop devices */
+@media only screen and (min-width: 1440px) {
+  .container {
+    padding: 0 64px;
+    max-width: 1440px;
+  }
+}
+
+.tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+  display: none;
+}
+
+.tui-pagination .tui-prev {
+  background: url('../../../assets/icons/left-arrow.svg') no-repeat center !important;
+}
+.tui-pagination .tui-next {
+  background: url('../../../assets/icons/right-arrow.svg') no-repeat center !important;
+}
+
+.tui-pagination .tui-prev:hover,
+.tui-pagination .tui-next:hover {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+}
+.tui-pagination .tui-ico-prev,
+.tui-pagination .tui-ico-next {
+  background-image: none !important;
+}
+
+.tui-pagination .tui-page-btn.pages:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.tui-pagination .tui-page-btn.tui-is-selected {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  position: relative;
+}
+.tui-pagination .tui-is-disabled {
+  opacity: 0.6;
+}
+.tui-pagination .tui-is-disabled:hover {
+  pointer-events: none !important;
+  background-color: transparent !important;
+}

@@ -1,17 +1,84 @@
-<section class="artists" id="artists">
+<!-- <section class="artists" id="artists">
   <div class="container">
     <p class="artists-subtitle">Artists</p>
     <h2 class="artists-title">Explore Your New Favorite Artists</h2>
     <div class="artists-results" id="artists-results">
-      <ul class="artists-list"></ul>
       <span class="loader">Loading</span>
-      <button class="js-load-more-btn btn-primary load-more-btn" type="button">
-        Load More<span>
-          <svg width="12" height="12">
-            <use href="./assets/icons/symbol-defs.svg#arrow-down"></use>
-          </svg>
-        </span>
-      </button>
+      <ul class="artists-list"></ul>
+      <div id="pagination" class="tui-pagination"></div>
+    </div>
+  </div>
+</section> -->
+
+<section class="artists" id="artists">
+  <div class="container">
+    <h2 class="artists-subtitle">Artists</h2>
+    <h3 class="artists-title">Explore Your New Favorite Artists</h3>
+    <div class="js-artists-filters artists-filters" id="artists-filters">
+      <aside class="artists-sidebar">
+        <div class="artists-sidebar-btns">
+          <h4 class="sidebar-btns-title">Filters</h4>
+          <button class="js-sidebar-btn-search btn-primary sidebar-btn-search">
+            Search and Filters
+            <span class="js-sidebar-search-arrow sidebar-search-arrow arrow-up">
+              <svg width="24" height="24">
+                <use href="./assets/icons/symbol-defs.svg#filter-arrow"></use>
+              </svg>
+            </span>
+          </button>
+          <button
+            type="button"
+            class="js-sidebar-btn-reset sidebar-btn-reset"
+            hidden
+          >
+            Reset
+          </button>
+        </div>
+        <div class="js-artists-filter-wrapper artists-filters-wrapper hide">
+          <div class="js-filter-search-wrapper filters-search-wrapper">
+            <input
+              class="js-filters-search-input filters-search-input"
+              type="text"
+              placeholder="Search"
+              name="search"
+              autocomplete="off"
+            />
+            <button
+              class="js-filters-btn-search filters-btn-search"
+              type="submit"
+            >
+              <span>
+                <svg width="24" height="24">
+                  <use href="./assets/icons/symbol-defs.svg#icon-search"></use>
+                </svg>
+              </span>
+            </button>
+          </div>
+
+          <select
+            class="js-filters-select-sorting filters-select-sorting"
+            name="sorting"
+            placeholder="Sorting"
+          >
+            <option value="">Default</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+          </select>
+          <select
+            class="js-filters-select-genre filters-select-genre"
+            name="genre"
+            placeholder="Genre"
+          >
+            <option value="">Default</option>
+          </select>
+        </div>
+      </aside>
+
+      <div class="artists-list-wrapper">
+        <span class="loader">Loading</span>
+        <ul class="js-artists-list artists-list"></ul>
+        <div id="pagination" class="tui-pagination"></div>
+      </div>
     </div>
   </div>
 </section>
