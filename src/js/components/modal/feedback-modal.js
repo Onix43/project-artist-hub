@@ -1,5 +1,4 @@
 import { postFeedback } from '../../api/feedback-api';
-import { showLoader, hideLoader } from '../../utils/loader.js';
 import { showErrorToast, showSuccessToast } from '../toaster/toaster.js';
 
 //
@@ -12,7 +11,10 @@ const feedbackInpName = document.querySelector('.feedback-name-inp');
 const feedbackInpMsg = document.querySelector('.feedback-msg-inp');
 const feedbackErrorTxtName = document.querySelector('.feedback-error-txt-name');
 const feedbackErrorTxtMsg = document.querySelector('.feedback-error-txt-msg');
-const ratingMsg = document.querySelector('.feedback-error-rating-msg');
+const feedbackRatingError = document.querySelector(
+  '.feedback-error-rating-msg'
+);
+const feedbackStar = document.querySelector('.feedback-rating');
 
 // form
 
@@ -30,44 +32,31 @@ feedbackForm.addEventListener('submit', async event => {
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
     feedbackErrorTxtMsg.classList.add('is-open');
-    setTimeout(() => {
-      ratingMsg.classList.remove('is-open');
-    }, 3000);
-    ratingMsg.classList.add('is-open');
-    return;
   }
   if (!feedbackName) {
     feedbackInpName.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
-    return;
   }
 
   if (feedbackName.length < 2 || feedbackName.length > 16) {
     feedbackInpName.classList.add('feedback-error');
     feedbackErrorTxtName.classList.add('is-open');
-    return;
   }
 
   if (!feedbackRating) {
-    setTimeout(() => {
-      ratingMsg.classList.remove('is-open');
-    }, 3000);
-    ratingMsg.classList.add('is-open');
-    return;
+    feedbackRatingError.classList.add('is-open');
   }
 
   if (!feedbackMsg) {
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
-    return;
   }
 
   if (feedbackMsg.length < 10 || feedbackMsg.length > 512) {
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
-    return;
   }
-  showLoader();
+  feedbackModal.style.display = 'none';
 
   try {
     const feedback = await postFeedback({
@@ -75,15 +64,14 @@ feedbackForm.addEventListener('submit', async event => {
       rating: Number(feedbackRating),
       descr: feedbackMsg,
     });
-    console.log(feedback, feedbackData);
-
     feedbackForm.reset();
     closeModal();
     showSuccessToast();
   } catch (error) {
     showErrorToast(error.message);
+    closeModal();
   } finally {
-    hideLoader();
+    feedbackModal.style.display = '';
   }
 });
 
@@ -116,6 +104,7 @@ function closeModal() {
 
 feedbackInpName.addEventListener('click', delErrorStyle);
 feedbackInpMsg.addEventListener('click', delErrorStyle);
+feedbackStar.addEventListener('click', delErrorStyle);
 
 function delErrorStyle(event) {
   if (
@@ -132,6 +121,12 @@ function delErrorStyle(event) {
     feedbackInpMsg.classList.remove('feedback-error');
     feedbackErrorTxtMsg.classList.remove('is-open');
   }
+  if (
+    event.target.closest('.feedback-rating') &&
+    feedbackRatingError.classList.contains('is-open')
+  ) {
+    feedbackRatingError.classList.remove('is-open');
+  }
 }
 // textarea rows resize
 
@@ -144,3 +139,5 @@ function rowsResize() {
     feedbackInpMsg.rows = 4;
   }
 }
+
+rowsResize();
