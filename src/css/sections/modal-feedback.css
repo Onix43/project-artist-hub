@@ -25,11 +25,14 @@
   margin: 0 auto;
   padding: 16px 16px 0;
   transition: var(--transition);
+  height: 100vh;
 }
 .feedback-close-btn {
   border: none;
   background-color: transparent;
   margin-left: auto;
+  width: 32px;
+  height: 32px;
 }
 .feedback-modal-title {
   margin: 0 auto;
@@ -51,6 +54,9 @@
   min-width: 100%;
   max-width: 100%;
   min-height: 43px;
+}
+.feedback-msg-inp {
+  padding: 12px 12px 10px;
 }
 .feedback-rating {
   display: inline-flex;
@@ -81,6 +87,7 @@ input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
 .feedback-submit-btn {
   border: none;
   color: var(--white-color);
+  width: 100%;
 }
 .feedback-error {
   color: #af0404;
@@ -112,6 +119,8 @@ input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
   }
   .feedback-modal > .container {
     padding: 16px 16px;
+    width: 704px;
+    height: 688px;
   }
   .feedback-modal::backdrop {
     backdrop-filter: blur(5px);
@@ -121,6 +130,9 @@ input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
     margin-bottom: 48px;
     font-size: 44px;
   }
+  .feedback-form {
+    margin: 0 16px;
+  }
   .feedback-name-inp,
   .feedback-msg-inp {
     margin-bottom: 24px;
@@ -128,16 +140,24 @@ input[type='radio']:checked ~ .feedback-star-label .feedback-modal-star {
   .feedback-rating {
     margin-bottom: 24px;
   }
+  .feedback-submit-btn {
+    margin: 0 auto;
+    width: 340px;
+  }
 }
 @media only screen and (min-width: 1440px) {
   .feedback-modal:modal {
     width: 864px;
   }
   .feedback-modal > .container {
-    padding: 16px 64px;
+    padding: 16px 16px;
+    width: 864px;
   }
   .feedback-modal-title {
     font-size: 60px;
+  }
+  .feedback-form {
+    margin: 0 48px;
   }
   .feedback-submit-btn {
     max-width: 108px;
