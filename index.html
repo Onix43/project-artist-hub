@@ -102,7 +102,10 @@
       <aside class="artists-sidebar">
         <div class="artists-sidebar-btns">
           <h4 class="sidebar-btns-title">Filters</h4>
-          <button class="js-sidebar-btn-search btn-primary sidebar-btn-search">
+          <button
+            class="js-sidebar-btn-search btn-primary sidebar-btn-search"
+            aria-label="search filter"
+          >
             Search and Filters
             <span class="js-sidebar-search-arrow sidebar-search-arrow arrow-up">
               <svg width="24" height="24">
@@ -113,6 +116,7 @@
           <button
             type="button"
             class="js-sidebar-btn-reset sidebar-btn-reset"
+            aria-label="reset button"
             hidden
           >
             Reset
@@ -130,6 +134,7 @@
             <button
               class="js-filters-btn-search filters-btn-search"
               type="submit"
+              aria-label="submit button"
             >
               <span>
                 <svg width="24" height="24">
@@ -353,7 +358,7 @@
     <footer class="footer">
   <div class="container">
     <div class="footer-nav-div">
-      <a href="./index.html" class="footer-logo-link"
+      <a href="./index.html" class="footer-logo-link" aria-label="logo"
         ><svg class="footer-logo" fill="#764191" width="116px" height="45px">
           <use href="/project-artist-hub/assets/symbol-defs-Clcba6Cr.svg#main-logo"></use>
         </svg>
@@ -368,13 +373,19 @@
       </a>
       <ul class="footer-nav-list">
         <li class="footer-nav-item">
-          <a href="#artists" class="footer-nav-link">Artists</a>
+          <a href="#artists" class="footer-nav-link" aria-label="artists link"
+            >Artists</a
+          >
         </li>
         <li class="footer-nav-item">
-          <a href="#about-us" class="footer-nav-link">About us</a>
+          <a href="#about-us" class="footer-nav-link" aria-label="about link"
+            >About us</a
+          >
         </li>
         <li class="footer-nav-item">
-          <a href="#feedbacks" class="footer-nav-link">Reviews</a>
+          <a href="#feedbacks" class="footer-nav-link" aria-label="reviews link"
+            >Reviews</a
+          >
         </li>
       </ul>
     </div>
@@ -386,6 +397,7 @@
             target="_blank"
             class="footer-soc-link"
             rel="noopener noreferrer"
+            aria-label="instagram link"
             ><svg
               fill="#fff"
               width="40px"
@@ -402,6 +414,7 @@
             target="_blank"
             class="footer-soc-link"
             rel="noopener noreferrer"
+            aria-label="facebook link"
             ><svg
               fill="#fff"
               width="40px"
@@ -418,6 +431,7 @@
             target="_blank"
             class="footer-soc-link"
             rel="noopener noreferrer"
+            aria-label="youtube link"
             ><svg
               fill="#fff"
               width="40px"
