@@ -1,5 +1,5 @@
 import { postFeedback } from '../../api/feedback-api';
-import { showSuccessToast } from '../toaster/toaster.js';
+import { showErrorToast, showSuccessToast } from '../toaster/toaster.js';
 
 //
 
@@ -70,7 +70,8 @@ feedbackForm.addEventListener('submit', async event => {
     closeModal();
     showSuccessToast();
   } catch (error) {
-    alert("404 can't receive answer from the server");
+    showErrorToast(error.message);
+    closeModal();
   } finally {
     feedbackModal.style.display = '';
   }
