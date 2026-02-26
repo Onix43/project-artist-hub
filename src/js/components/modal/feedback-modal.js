@@ -56,7 +56,6 @@ feedbackForm.addEventListener('submit', async event => {
     feedbackInpMsg.classList.add('feedback-error');
     feedbackErrorTxtMsg.classList.add('is-open');
   }
-  feedbackModal.style.display = 'none';
 
   try {
     const feedback = await postFeedback({
@@ -70,8 +69,6 @@ feedbackForm.addEventListener('submit', async event => {
   } catch (error) {
     showErrorToast(error.message);
     closeModal();
-  } finally {
-    feedbackModal.style.display = '';
   }
 });
 
