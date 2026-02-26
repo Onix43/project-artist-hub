@@ -14,7 +14,8 @@
 }
 
 .swiper {
-  margin-bottom: 26px;
+  position: relative;
+  /* margin-bottom: 26px; */
   @media (min-width: 768px) {
     margin-bottom: 16px;
   }
@@ -34,8 +35,9 @@
   flex-direction: column;
   align-items: center;
   padding: 59px;
-
+  
   gap: 32px;
+  
 }
 
 .list-star {
@@ -111,21 +113,39 @@
     display: flex !important;
   }
 }
+/*!! Start the hell                               */
 
-.swiper-pagination-bullet {
-  background-color: #999999 !important;
+.custom-pagination {
+  display: flex;
+  gap: 9px;
+  justify-content: center;
+  position: absolute;
+  bottom: 16px;
+  right: 50%;
+  transform: translateX(50%);
+  @media (min-width: 768px) {
+      bottom: 30px;
+    }
+  @media (min-width: 1440px) {
+    bottom: 0px;
+  }
+}
+
+.custom-bullet {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 0.2;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.custom-bullet.is-active {
   opacity: 1;
 }
-
-/* Только активная точка */
-.swiper-pagination-bullet-active {
-  background-color: var(--white-color) !important;
-  transform: scale(1.2);
-  /* Увеличит точку в 1.5 раза */
-  transition: transform 0.3s ease;
-  /* Добавит плавности */
-}
-
+/*!! End of hell                               */
 .stars-static {
   display: flex;
   gap: 4px;
