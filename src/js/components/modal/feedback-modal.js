@@ -1,7 +1,7 @@
 import { postFeedback } from '../../api/feedback-api';
 import { showLoader, hideLoader } from '../../utils/loader.js';
 
-// общий сбор
+//
 
 const closeBtn = document.querySelector('.feedback-close-btn');
 const leaveFeedbackBtn = document.querySelector('.btn-feedback-modal');
@@ -71,7 +71,7 @@ feedbackForm.addEventListener('submit', async event => {
       rating: Number(feedbackRating),
       descr: feedbackMsg,
     });
-    console.log('Feedback is processed', feedback);
+    console.log(feedback, feedbackData);
 
     feedbackForm.reset();
     closeModal();
@@ -128,3 +128,4 @@ function delErrorStyle(event) {
     feedbackErrorTxtMsg.classList.remove('is-open');
   }
 }
+// rows="6"
