@@ -63,7 +63,8 @@ feedbackForm.addEventListener('submit', async event => {
     feedbackErrorTxtMsg.classList.add('is-open');
     return;
   }
-  showLoader();
+  showLoader;
+  feedbackForm.style.display = 'none';
 
   try {
     const feedback = await postFeedback({
@@ -76,9 +77,10 @@ feedbackForm.addEventListener('submit', async event => {
     feedbackForm.reset();
     closeModal();
   } catch (error) {
-    console.log('404 SOS:', error);
+    console.log(error);
   } finally {
-    hideLoader();
+    hideLoader;
+    feedbackForm.style.display = '';
   }
 });
 
