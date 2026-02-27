@@ -5,7 +5,7 @@ import { getArtists } from '../../api/artists-api';
 import refs from '../../refs';
 import './pagination.css';
 
-export function createPagination(totalArtists, limit, page) {
+export function createPagination(totalArtists, limit, page, value) {
   const container = document.querySelector('#pagination');
   const paginationOptions = {
     totalItems: totalArtists,
@@ -76,6 +76,7 @@ export function createPagination(totalArtists, limit, page) {
     }
     const { artists } = await getArtists({
       page: currentPage,
+      ...value,
     });
 
     refs.listArtists.innerHTML = '';
