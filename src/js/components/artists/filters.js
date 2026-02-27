@@ -73,7 +73,7 @@ async function sortingArtists(value) {
       return;
     }
     createArtistsList(artists, totalArtists, limit, page, value);
-    createPagination(totalArtists, limit, page);
+    createPagination(totalArtists, limit, page, value);
   } catch (error) {
     container.innerHTML = '';
     refs.listArtists.innerHTML = createFilterError();
